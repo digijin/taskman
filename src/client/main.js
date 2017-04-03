@@ -1,9 +1,10 @@
 // @flow
 
-import ReactDOM from 'react-dom';
-import React from 'react';
-import { Provider } from 'react-redux';
+import App from './App'
 
 let div = document.getElementById('container')
-div.innerHTML = 'hello world'
-console.log('yolod');
+
+let app = new App(div);
+
+// div.innerHTML = 'hello world'
+// console.log('yolod');
