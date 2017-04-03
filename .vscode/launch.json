@@ -1,0 +1,64 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:8080/dist",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
+      "diagnosticLogging": false,
+      "userDataDir": "${workspaceRoot}/.vscode/chrome"
+    },
+    {
+      "name": "Launch Electron",
+      "type": "node",
+      "request": "launch",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "runtimeArgs": [
+        ".",
+        "--enable-logging"
+      ],
+      "env": {},
+      "externalConsole": false,
+      "sourceMaps": false,
+      "outDir": null
+    },
+    {
+      "name": "Launch Functional",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9876/",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
+      "diagnosticLogging": false,
+      "userDataDir": "${workspaceRoot}/.vscode/chrome"
+    },
+    {
+      "name": "Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/jest-cli/bin/jest.js",
+      "stopOnEntry": false,
+      "args": [
+        "--runInBand"
+      ],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "externalConsole": false,
+      "sourceMaps": true,
+      "outDir": null
+    }
+  ]
+}
