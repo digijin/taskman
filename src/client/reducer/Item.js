@@ -1,5 +1,5 @@
 
-export default function reducer(state = [], action){
+export default function Item(state = [], action){
 
 	return state;
 }
