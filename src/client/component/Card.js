@@ -11,7 +11,7 @@ import {DragSource} from 'react-dnd'
 const cardSource = {
   beginDrag(props) {
     return {
-      text: props.text
+      id: props.id
     };
   }
 };
@@ -27,8 +27,6 @@ function collect(connect, monitor) {
 }
 
 const propTypes = {
-  text: PropTypes.string.isRequired,
-
   // Injected by React DnD:
   isDragging: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired
