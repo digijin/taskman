@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 import Card from '../component/Card'
+import Column from '../Board/Column'
 /** each board is looking at a type of item. 
  * it needs an attribute for columns and can take 
  * another attribute for swimlanes 
@@ -22,18 +23,20 @@ class Board extends React.Component{
 		let column = this.props.match.params.column;
 
 		let items = this.props.items.filter(i => {
-			i.getType() == type;
+			return i.getType() == type;
 		})
 		let columns = this.props.items.filter(i => {
-			i.getType() == column;
+			return i.getType() == column;
+		}).map(c => {
+			//TODO none column
+			return <Column />
 		})
-
-
 
 		return <div>
 			{type} - {column}
-			<Card />
-			<Card />
+			<div className="board">
+				{columns}
+			</div>
 		</div>
 	}
 }

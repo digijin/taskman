@@ -37,7 +37,7 @@ const propTypes = {
 class Card extends React.Component{
 	render(){
 		const { isDragging, connectDragSource, text } = this.props;
-		return connectDragSource(<div className="well card">
+		return connectDragSource(<div style={{opacity: isDragging ? 0.5 : 1}} className="card panel">
 				<h4 className="title">Card title</h4>
 				<p className="text">Some quick example text to build</p>
 		</div>)
