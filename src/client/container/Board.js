@@ -27,9 +27,9 @@ class Board extends React.Component{
 		})
 		let columns = this.props.items.filter(i => {
 			return i.getType() == column;
-		}).map(c => {
+		}).map(i => {
 			//TODO none column
-			return <Column />
+			return <Column name={i.getName()} />
 		})
 
 		return <div>
