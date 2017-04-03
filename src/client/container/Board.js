@@ -37,6 +37,10 @@ class Board extends React.Component{
 				name={i.getName()} 
 				type={column} />
 		})
+		columns.push(<Column key="undefined" items={items.filter(itm=>{
+					return !itm[column];
+				})} name="undefined" 
+				type={column} />)
 
 		return <div>
 			{type} - {column}
