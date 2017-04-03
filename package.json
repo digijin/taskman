@@ -75,6 +75,8 @@
     "optimist": "^0.6.1",
     "react": "^15.3.1",
     "react-addons-test-utils": "^15.1.0",
+    "react-dnd": "^2.3.0",
+    "react-dnd-html5-backend": "^2.3.0",
     "react-dom": "^15.1.0",
     "react-draggable": "^2.2.3",
     "react-redux": "^4.4.5",

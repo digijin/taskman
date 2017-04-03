@@ -1,6 +1,9 @@
 
 import React from 'react'
 
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+import Card from '../component/Card'
 /** each board is looking at a type of item. 
  * it needs an attribute for columns and can take 
  * another attribute for swimlanes 
@@ -13,7 +16,7 @@ type Props = {
 	filter?: Function
 }
 
-export default class Board extends React.Component{
+class Board extends React.Component{
 
 	render(){
 		let type = this.props.match.type;
@@ -41,11 +44,4 @@ function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	};
 }
 
-class Card extends React.Component{
-	render(){
-		return <div className="well card">
-				<h4 className="title">Card title</h4>
-				<p className="text">Some quick example text to build</p>
-		</div>
-	}
-}
+export default DragDropContext(HTML5Backend)(Board)
