@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "unit": "jest -o --watch",
-    "dev": "webpack-dev-server --hot --inline",
+    "dev": "webpack-dev-server --hot --inline --history-api-fallback --content-base dist",
     "build": "webpack",
     "functional": "./node_modules/.bin/karma start",
     "electron": "gulp build --electron && electron dist/",
