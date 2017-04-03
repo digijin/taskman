@@ -6,13 +6,15 @@ import { connect } from 'react-redux';
 import DropDown from '../component/DropDown'
 import type Type from 'Type';
 
+import Select from 'react-select';
+
 type Props = {
 	types: Array<Type>
 }
 
-class ItemAdd extends React.Component{
+class ItemAdd extends React.Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props)
 		this.state = {}
 		this.submit = this.submit.bind(this)
@@ -20,12 +22,12 @@ class ItemAdd extends React.Component{
 	render() {
 
 		let typeOptions = this.props.types.map(t => {
-			return {value: t.getId(), label: t.getName()}
+			return { value: t.getId(), label: t.getName() }
 		})
 
 		let fields = [];
-		if(this.state.type){
-			let type = this.props.types.filter(t => {return t.getId() == this.state.type})[0];
+		if (this.state.type) {
+			let type = this.props.types.filter(t => { return t.getId() == this.state.type })[0];
 			type.getDataFields().forEach(f => {
 
 				fields.push(<div key={f}>
@@ -33,8 +35,29 @@ class ItemAdd extends React.Component{
 					<input onChange={e => {
 						this.state[f] = e.target.value;
 						this.setState(this.state)
-						
+
 					}} type="text" placeholder={f} value={this.state[f]} />
+				</div>
+				)
+			})
+			type.getAttributeFields().forEach(f => {
+				let fieldOptions = this.props.items.filter(i => {
+					return i.getType() == f
+				}).map(i => {
+					return { value: i.getId(), label: i.getName() }
+				});
+				fields.push(<div key={f}>
+					{f}<br />
+					<Select
+						name="form-field-name"
+						value={this.state[f]}
+						options={fieldOptions}
+						onChange={e => {
+							if(e)
+								this.state[f] = e.value;
+							this.setState(this.state)
+						}}
+					/>
 				</div>
 				)
 			})
@@ -42,29 +65,34 @@ class ItemAdd extends React.Component{
 
 		return <div className="panel panel-default">
 			<div className="panel-heading">Add Item</div>
-			type: <DropDown 
-				selected={this.state.type}
-				onChange={(e) => {this.setState({type:e});}} 
-				options={typeOptions} />
-				{fields}
+			type: 
+			<Select 
+				value={this.state.type}
+				onChange={(e) => { 
+					this.setState({ type: e.value }); 
+				}}
+				options={typeOptions}
+			/>
+			{fields}
 			<input onClick={this.submit} type="submit" />
 		</div>
 	}
-	submit(){
+	submit() {
 		// console.log('state');
 		this.props.add(this.state);
 	}
 }
-function mapStateToProps(state:Object, props:Object):Object {
+function mapStateToProps(state: Object, props: Object): Object {
 	return {
-		types: state.type
+		types: state.type,
+		items: state.item
 	};
 }
 
-function mapDispatchToProps(dispatch:Function, props:Object):Object {
+function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	return {
 		add: (item) => {
-			dispatch({type:'ADD_ITEM', item: item});
+			dispatch({ type: 'ADD_ITEM', item: item });
 		}
 	};
 }

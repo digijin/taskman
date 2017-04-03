@@ -7,6 +7,8 @@ class ItemList extends React.Component{
 	render() {
 		let rows = this.props.item.map(t => {
 			return <tr>
+				<td>{t.getId()}</td>
+				<td>{t.getType()}</td>
 				<td>{t.getName()}</td>
 			</tr>
 		})
@@ -14,6 +16,8 @@ class ItemList extends React.Component{
 			<h1>Items</h1>
 			<table className="table">
 				<thead>
+					<th>Id</th>
+					<th>Type</th>
 					<th>Name</th>
 				</thead>
 				<tbody>

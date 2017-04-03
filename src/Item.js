@@ -1,5 +1,7 @@
 // @flow
 
+import id from 'Util/id'
+
 export default class Item{
 	//an item has all attributes
 	//unless limited in mvp2
@@ -8,6 +10,22 @@ export default class Item{
 	parent:number;
 	data: Object;
 	attributes: Object;
+
+	constructor(params){
+		Object.keys(params).forEach(k => {
+			this[k] = params[k]
+		});
+		if(!this.id) this.id = id();
+	}
+	getId():string{
+		return this.id;
+	}
+	getName():string{
+		return this.name || 'unnamed'
+	}
+	getType():string{
+		return this.type
+	}
 
 	
 }
