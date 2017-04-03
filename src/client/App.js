@@ -9,12 +9,22 @@ import reducer from './reducer'
 
 import AppContainer from './container/App'
 
+import Type from 'Type';
+import Item from 'Item'
 
 export default class App {
 	container:HTMLDivElement;
 	constructor(container){
 		this.container = container;
-		this.store = createStore(reducer, this.state);
+		let preloadedState = localStorage.getItem('state');
+		if(preloadedState){
+			let data = JSON.parse(preloadedState);
+			preloadedState = {
+				item: data.item.map(i => {return new Item(i)}),
+				type: data.type.map(i => {return new Type(i)}),
+			}
+		}
+		this.store = createStore(reducer, preloadedState);
 		this.store.subscribe(this.render.bind(this))
 		this.store.subscribe(this.save.bind(this))
 		this.render();

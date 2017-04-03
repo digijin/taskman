@@ -6,11 +6,13 @@ export default class Type{
 	dataFields: {};
 	attributeFields: {};
 
-	constructor(name:string, dataFields = {}, attributeFields = {}){
-		this.name = name;
-		this.id = this.name; //and then never change it;
-		this.dataFields = dataFields;
-		this.attributeFields = attributeFields;
+	constructor(params){
+		Object.keys(params).forEach(k => {
+			this[k] = params[k]
+		});
+		if(!this.id) this.id = this.name; //and then never change it;
+		if(!this.dataFields) this.dataFields = {}
+		if(!this.attributeFields) this.attributeFields = {}
 	}
 
 	getId():string{
