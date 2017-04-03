@@ -11,7 +11,8 @@ import {DragSource} from 'react-dnd'
 const cardSource = {
   beginDrag(props) {
     return {
-      id: props.id
+      id: props.id,
+	  item: props.item
     };
   }
 };
@@ -36,8 +37,8 @@ class Card extends React.Component{
 	render(){
 		const { isDragging, connectDragSource, text } = this.props;
 		return connectDragSource(<div style={{opacity: isDragging ? 0.5 : 1}} className="card panel">
-				<h4 className="title">Card title</h4>
-				<p className="text">Some quick example text to build</p>
+				<h4 className="title">{this.props.item.getName()}</h4>
+				<p className="text">{this.props.item.description}</p>
 		</div>)
 	}
 }

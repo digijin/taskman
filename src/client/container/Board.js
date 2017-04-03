@@ -29,7 +29,13 @@ class Board extends React.Component{
 			return i.getType() == column;
 		}).map(i => {
 			//TODO none column
-			return <Column key={i.getName()} id={i.getId()} name={i.getName()} type={column} />
+			return <Column key={i.getName()} 
+				id={i.getId()} 
+				items={items.filter(itm=>{
+					return itm[column] == i.getId();
+				})}
+				name={i.getName()} 
+				type={column} />
 		})
 
 		return <div>

@@ -5,13 +5,13 @@ import { DropTarget } from 'react-dnd';
 
 class Column extends React.Component{
 	render(){
-		
+		let cards = this.props.items.map(i => {
+			return <Card id={i.getId()} item={i} />
+		})
 		const { isOver, canDrop, connectDropTarget } = this.props;
 		return connectDropTarget(<div className="well column">
 			<h3>{this.props.name}</h3>
-				<Card id="cardone" />
-				<Card id="cardtwo" />
-				<Card id="cardthr" />
+			{cards}
 			</div>)
 	}
 }
