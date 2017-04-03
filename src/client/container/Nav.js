@@ -23,6 +23,7 @@ export default class Nav extends React.Component {
 						<li><Link to={'/'}>Home</Link></li>
 						<li><Link to={'/type'}>Types</Link></li>
 						<li><Link to={'/item'}>Items</Link></li>
+						<li><Link to={'/board/task/state'}>Board</Link></li>
 					</ul>
 					
 				</div>

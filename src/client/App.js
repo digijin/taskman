@@ -23,6 +23,8 @@ export default class App {
 				item: data.item.map(i => {return new Item(i)}),
 				type: data.type.map(i => {return new Type(i)}),
 			}
+		}else{
+			preloadedState = {item:[], type:[]}
 		}
 		this.store = createStore(reducer, preloadedState);
 		this.store.subscribe(this.render.bind(this))
