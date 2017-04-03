@@ -16,9 +16,13 @@ export default class App {
 		this.container = container;
 		this.store = createStore(reducer, this.state);
 		this.store.subscribe(this.render.bind(this))
+		this.store.subscribe(this.save.bind(this))
 		this.render();
 	}
 	render(){
 		ReactDOM.render(<Provider store={this.store}><AppContainer /></Provider>, this.container);
+	}
+	save(){
+		localStorage.setItem('state', JSON.stringify(this.store.getState()))
 	}
 }
