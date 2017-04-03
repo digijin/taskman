@@ -2,6 +2,8 @@
 import React from 'react';
 import Card from '../component/Card';
 import { DropTarget } from 'react-dnd';
+import { connect } from 'react-redux';
+import {flow} from 'lodash';
 
 class Column extends React.Component{
 	render(){
@@ -39,11 +41,27 @@ let dropTarget = {
 	drop(props, monitor, component) {
 		if (monitor.didDrop()) return;
 		const item = monitor.getItem();
-		console.log('drop', item, 'set', props.type, props.id);
-		
+		// console.log('drop', item, 'set', props.type, props.id);
+		props.update(item.id, props.type, props.id)
 		return { moved: true };
 	}
 
 };
 
-export default DropTarget('card', dropTarget, collect)(Column);
+function mapStateToProps(state: Object, props: Object): Object {
+	return {};
+}
+
+function mapDispatchToProps(dispatch: Function, props: Object): Object {
+	return {
+		update: (id, field, value) => {
+			dispatch({ type: 'UPDATE_ITEM', id:id, field:field, value:value });
+		}
+	};
+}
+
+// export default DropTarget('card', dropTarget, collect)(Column);
+export default flow(
+	DropTarget('card', dropTarget, collect),
+	connect(mapStateToProps, mapDispatchToProps)
+)(Column)
