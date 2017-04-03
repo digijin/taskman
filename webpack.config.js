@@ -55,7 +55,10 @@ var webpackConfig = {
 			{   test: /\.styl$/,
 				loader: "style-loader!css-loader!stylus-loader"
 			},
-			{   test: /\.(ttf|eot|svg|TTF)$/,
+			{   test: /\.css$/,
+				loader: "style-loader!css-loader"
+			},
+			{   test: /\.(ttf|eot|svg|TTF|woff2|woff)$/,
 				loader: "file-loader"
 			}
 		]

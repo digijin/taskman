@@ -1,6 +1,9 @@
+// @flow
 
+import item from './reducer/Item'
 
-export default function reducer(state, action){
-	
-	return state;
-}
+import { combineReducers } from 'redux';
+
+export default combineReducers({
+	item
+})

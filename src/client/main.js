@@ -1,10 +1,14 @@
 // @flow
 
-import App from './App'
+import App from './App';
 
-let div = document.getElementById('container')
 
-let app = new App(div);
+import $ from 'jquery';
+window.jQuery = $;
+require('bootstrap');
+require('bootstrap/dist/css/bootstrap.css')
+require('bootstrap/dist/css/bootstrap-theme.css')
+require('./style.styl')
 
-// div.innerHTML = 'hello world'
-// console.log('yolod');
+// let div = document.getElementById('container')
+let app = new App(document.body);

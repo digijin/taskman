@@ -9,6 +9,7 @@ import reducer from './reducer'
 
 import AppContainer from './container/App'
 
+
 export default class App {
 	container:HTMLDivElement;
 	constructor(container){

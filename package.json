@@ -58,6 +58,7 @@
     "javascript-astar": "^0.4.1",
     "jest": "^18.1.0",
     "jest-cli": "^18.1.0",
+    "jquery": "^3.2.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.1.8",
     "karma-coverage": "^0.5.5",

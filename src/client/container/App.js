@@ -1,10 +1,14 @@
 // @flow
 import React from 'react'
 
-export default class App extends React.Component{
+import Nav from './Nav'
+import TypeIndex from '../Type/Index'
+
+export default class App extends React.Component {
 	render() {
 		return <div>
-				task manager
+				<Nav />
+				<TypeIndex />
 			</div>
 	}
 }
