@@ -1,6 +1,8 @@
 // @flow
 import React from 'react'
 
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 import Nav from './Nav'
 import TypeIndex from '../Type/Index'
 import ItemIndex from '../Item/Index'
@@ -8,7 +10,7 @@ import Board from './Board'
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
-export default class App extends React.Component {
+class App extends React.Component {
 	render() {
 		return <div>
 				<Router>
@@ -22,3 +24,4 @@ export default class App extends React.Component {
 			</div>
 	}
 }
+export default DragDropContext(HTML5Backend)(App)

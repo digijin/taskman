@@ -1,8 +1,7 @@
 
 import React from 'react'
+import { connect } from 'react-redux';
 
-import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
 import Card from '../component/Card'
 /** each board is looking at a type of item. 
  * it needs an attribute for columns and can take 
@@ -19,10 +18,20 @@ type Props = {
 class Board extends React.Component{
 
 	render(){
-		let type = this.props.match.type;
-		let column = this.props.match.column;
+		let type = this.props.match.params.type;
+		let column = this.props.match.params.column;
+
+		let items = this.props.items.filter(i => {
+			i.getType() == type;
+		})
+		let columns = this.props.items.filter(i => {
+			i.getType() == column;
+		})
+
+
 
 		return <div>
+			{type} - {column}
 			<Card />
 			<Card />
 		</div>
@@ -44,4 +53,5 @@ function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	};
 }
 
-export default DragDropContext(HTML5Backend)(Board)
+export default connect(mapStateToProps, mapDispatchToProps)(Board);
+// export default Board
