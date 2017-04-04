@@ -20,6 +20,15 @@ export default function itemReducer(state = [], action){
 			state = [...state, item]
 		break;
 		case 'UPDATE_ITEM':
+			
+			state = state.map(i => {
+				if(i.getId() == action.item.id){
+					return new Item(action.item);
+				}
+				return i;
+			})
+		break;
+		case 'UPDATE_ITEM_FIELD':
 			state = state.map(i => {
 				if(i.getId() == action.id){
 					i[action.field] = action.value;
