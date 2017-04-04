@@ -3,38 +3,45 @@
 console.log('starting hyperwire server')
 console.log('please visit http://localhost:2468')
 
+// console.log('__dirname', __dirname);
+// console.log('process.cwd()', process.cwd());
+
+const globalFolder = __dirname;
+const localFolder = process.cwd()
+let fs = require('fs');
+
+const path = require('path');
+
+let stateFilename = path.join(localFolder, 'taskstate.json')
+
 let Koa = require('koa');
 let Router = require('koa-router');
 const serve = require('koa-static');
 
-var cors = require('koa-cors');
-let fs = require('fs');
-
-
-
+const cors = require('koa-cors');
 
 let app = new Koa();
 let router = new Router();
 
-
-app.use(serve('dist'));
+app.use(serve(path.join(globalFolder, '../..', 'dist')));
 
 
 const body = require('koa-json-body')
 app.use(body({ limit: '10kb', fallback: true }))
 
+//todo: search upwards in folders for taskstate.json
 
 router.get('/state', (ctx, next) => {
     let json = {}
-    if(fs.fileExists('state.json')){
-        json = JSON.parse(fs.readFileSync('state.json').toString());
+    if(fs.existsSync(stateFilename)){
+        json = JSON.parse(fs.readFileSync(stateFilename).toString());
     }
     ctx.body = json
 })
 
 router.put('/state', (ctx, next) => {
     if(ctx.request.body){
-        fs.writeFileSync('state.json', JSON.stringify(ctx.request.body, null, 2));
+        fs.writeFileSync(stateFilename, JSON.stringify(ctx.request.body, null, 2));
     }
 })
 
@@ -45,7 +52,7 @@ router.put('/state', (ctx, next) => {
 app.use(cors());
 app.use(router.routes()).use(router.allowedMethods());
 
-let index = fs.readFileSync('dist/index.html').toString()
+let index = fs.readFileSync(path.join(globalFolder, '../..',  'dist/index.html')).toString()
 
 app.use(function * notFound(next){
     yield next;
