@@ -8,12 +8,19 @@
     {
       "id": "DEV",
       "type": "state",
-      "name": "in dev"
+      "name": "in devel"
     },
     {
       "id": "DONE",
       "type": "state",
       "name": "done"
+    },
+    {
+      "type": "task",
+      "name": "Test",
+      "description": "testing stuff",
+      "state": "PRIORITY",
+      "id": "1491322258678"
     }
   ],
   "type": [

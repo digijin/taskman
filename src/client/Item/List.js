@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 class ItemList extends React.Component{
 	render() {
@@ -10,6 +11,9 @@ class ItemList extends React.Component{
 				<td>{t.getId()}</td>
 				<td>{t.getType()}</td>
 				<td>{t.getName()}</td>
+				<td>
+					<div className="button"><Link className="btn btn-default" to={'/item/edit/'+t.getId()}>edit</Link></div>
+				</td>
 			</tr>
 		})
 		return <div>
