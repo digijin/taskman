@@ -12,7 +12,7 @@ class ItemList extends React.Component{
 				<td>{t.getType()}</td>
 				<td>{t.getName()}</td>
 				<td>
-					<div className="button"><Link className="btn btn-default" to={'/item/edit/'+t.getId()}>edit</Link></div>
+					<Link className="btn btn-default" to={'/item/edit/'+t.getId()}>edit</Link>
 				</td>
 			</tr>
 		})

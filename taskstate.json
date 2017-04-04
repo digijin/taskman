@@ -21,6 +21,14 @@
       "description": "testing stuff",
       "state": "PRIORITY",
       "id": "1491322258678"
+    },
+    {
+      "type": "task",
+      "name": "Do Work",
+      "description": "just do it",
+      "storyPoints": "1",
+      "id": "1491323991078",
+      "state": "PRIORITY"
     }
   ],
   "type": [
@@ -36,7 +44,8 @@
       "name": "task",
       "dataFields": {
         "name": "string",
-        "description": "string"
+        "description": "text",
+        "storyPoints": "number"
       },
       "attributeFields": {
         "state": {

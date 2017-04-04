@@ -7,7 +7,8 @@ export default function type(state = [], action){
 		new Type({name:'state', dataFields: {name: 'string'}}),
 		new Type({name:'task', dataFields: {
 				name: 'string',
-				description: 'string'
+				description: 'text',
+				storyPoints: 'number'
 			},
 			attributeFields:{
 				state: {

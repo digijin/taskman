@@ -1,6 +1,7 @@
 
 import React, { PropTypes } from 'react';
 import {DragSource} from 'react-dnd'
+import {Link} from 'react-router-dom'
 // import { ItemTypes } from './Constants';
 
 
@@ -39,6 +40,7 @@ class Card extends React.Component{
 		return connectDragSource(<div style={{opacity: isDragging ? 0.5 : 1}} className="card panel">
 				<h4 className="title">{this.props.item.getName()}</h4>
 				<p className="text">{this.props.item.description}</p>
+        <Link className="btn btn-default" to={'/item/edit/'+this.props.item.getId()}>edit</Link>
 		</div>)
 	}
 }
