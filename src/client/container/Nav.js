@@ -13,7 +13,7 @@ export default class Nav extends React.Component {
 						<span className="icon-bar"></span>
 						<span className="icon-bar"></span>
 					</button>
-					<a className="navbar-brand" href="#">Task Manager</a>
+					<a className="navbar-brand" href="#">HyperWire</a>
 				</div>
 				<div id="navbar" className="collapse navbar-collapse">
 					<ul className="nav navbar-nav">

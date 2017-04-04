@@ -40,7 +40,7 @@ export default class App {
 
 		$.ajax( {
 			type: 'PUT',
-			url: 'http://localhost:2468',
+			url: 'http://localhost:2468/state',
 			data: JSON.stringify(this.store.getState())
 		})
 		localStorage.setItem('state', JSON.stringify(this.store.getState()))
