@@ -29,12 +29,9 @@ class ItemAdd extends React.Component {
 		</div>
 	}
 	formChange(e){
-		// console.log('e', e);
 		this.setState(e);
-		
 	}
 	submit() {
-		// console.log('state');
 		this.props.submit(this.state);
 	}
 }

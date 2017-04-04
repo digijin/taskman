@@ -20,55 +20,59 @@ class ItemForm extends React.Component {
 		this.state = props.state
 	}
 	changeField(field, value){
-		
 		this.state[field] = value;
 		this.setState(this.state)
 		this.props.onChange(this.state)
 	}
-	render() {
 
+	dataFields(type){
+		return type.getDataFields().map(f => {
+
+			return (<div key={f}>
+				{f}<br />
+				<input onChange={e => {
+					this.changeField(f, e.target.value)
+				}} type="text" placeholder={f} value={this.state[f]} />
+			</div>
+			)
+		})
+	}
+	attributeFields(type){
+		return type.getAttributeFields().map(f => {
+			let fieldOptions = this.props.items.filter(i => {
+				return i.getType() == f
+			}).map(i => {
+				return { value: i.getId(), label: i.getName() }
+			});
+			return (<div key={f}>
+				{f}<br />
+				<Select
+					name="form-field-name"
+					value={this.state[f]}
+					options={fieldOptions}
+					onChange={e => {
+						if(e) this.changeField(f, e.value)
+							// this.state[f] = e.value;
+						// this.setState(this.state)
+					}}
+				/>
+			</div>
+			)
+		})
+	}
+
+	render() {
 		let typeOptions = this.props.types.map(t => {
 			return { value: t.getId(), label: t.getName() }
 		})
-
 		let fields = [];
 		if (this.state.type) {
 			let type = this.props.types.filter(t => { return t.getId() == this.state.type })[0];
-			type.getDataFields().forEach(f => {
-
-				fields.push(<div key={f}>
-					{f}<br />
-					<input onChange={e => {
-						this.changeField(f, e.target.value)
-
-					}} type="text" placeholder={f} value={this.state[f]} />
-				</div>
-				)
-			})
-			type.getAttributeFields().forEach(f => {
-				let fieldOptions = this.props.items.filter(i => {
-					return i.getType() == f
-				}).map(i => {
-					return { value: i.getId(), label: i.getName() }
-				});
-				fields.push(<div key={f}>
-					{f}<br />
-					<Select
-						name="form-field-name"
-						value={this.state[f]}
-						options={fieldOptions}
-						onChange={e => {
-							if(e) this.changeField(f, e.value)
-								// this.state[f] = e.value;
-							// this.setState(this.state)
-						}}
-					/>
-				</div>
-				)
-			})
+			// fields = [...this.dataFields(type), ...this.attributeFields(type)]
+			let dataFields = this.dataFields(type);
+			let attributeFields = this.attributeFields(type)
+			fields = dataFields.concat(attributeFields);
 		}
-
-
 		return <div>
 				type: 
 				<Select 

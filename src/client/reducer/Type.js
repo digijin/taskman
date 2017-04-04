@@ -19,7 +19,8 @@ export default function type(state = [], action){
 
 	switch(action.type){
 		case 'LOAD':
-			state = action.data.type.map(i => {return new Type(i)})
+			if(action.data.type)
+				state = action.data.type.map(i => {return new Type(i)})
 		break;
 	}
 
