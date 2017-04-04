@@ -1,5 +1,5 @@
 {
-  "name": "taskman",
+  "name": "hyperwire",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -14,6 +14,9 @@
     "flow:watch": "flow-watch",
     "coverage": "jest --coverage --watch",
     "server": "node src/server/server.js"
+  },
+  "bin": {
+    "hyperwire": "./src/server/server.js"
   },
   "repository": {
     "type": "git",

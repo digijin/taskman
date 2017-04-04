@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+console.log('starting hyperwire server')
+console.log('please visit http://localhost:2468')
 
 let Koa = require('koa');
 let Router = require('koa-router');
