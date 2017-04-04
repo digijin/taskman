@@ -12,6 +12,8 @@ import AppContainer from './container/App'
 import Type from 'Type';
 import Item from 'Item'
 
+import $ from 'jquery'
+
 export default class App {
 	container:HTMLDivElement;
 	constructor(container){
@@ -35,6 +37,12 @@ export default class App {
 		ReactDOM.render(<Provider store={this.store}><AppContainer /></Provider>, this.container);
 	}
 	save(){
+
+		$.ajax( {
+			type: 'PUT',
+			url: 'http://localhost:2468',
+			data: JSON.stringify(this.store.getState())
+		})
 		localStorage.setItem('state', JSON.stringify(this.store.getState()))
 	}
 }

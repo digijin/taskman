@@ -12,7 +12,8 @@
     "electron": "gulp build --electron && electron dist/",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "flow:watch": "flow-watch",
-    "coverage": "jest --coverage --watch"
+    "coverage": "jest --coverage --watch",
+    "server": "node src/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -71,6 +72,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "koa": "^2.2.0",
+    "koa-json-body": "^5.3.0",
+    "koa-router": "^7.1.1",
     "lodash": "^3.8.0",
     "optimist": "^0.6.1",
     "react": "^15.3.1",

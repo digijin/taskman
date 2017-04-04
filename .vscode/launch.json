@@ -59,6 +59,21 @@
       "externalConsole": false,
       "sourceMaps": true,
       "outDir": null
+    },
+    {
+      "name": "Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/server/server.js",
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "externalConsole": false,
+      "sourceMaps": true,
+      "outDir": null
     }
   ]
 }
