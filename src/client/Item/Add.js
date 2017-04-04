@@ -79,7 +79,7 @@ class ItemAdd extends React.Component {
 	}
 	submit() {
 		// console.log('state');
-		this.props.add(this.state);
+		this.props.submit(this.state);
 	}
 }
 function mapStateToProps(state: Object, props: Object): Object {
@@ -91,7 +91,7 @@ function mapStateToProps(state: Object, props: Object): Object {
 
 function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	return {
-		add: (item) => {
+		submit: (item) => {
 			dispatch({ type: 'ADD_ITEM', item: item });
 		}
 	};
