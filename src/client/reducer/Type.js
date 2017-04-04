@@ -10,7 +10,10 @@ export default function type(state = [], action){
 				description: 'string'
 			},
 			attributeFields:{
-				state: {}
+				state: {
+					multiple: false,
+					required: false
+				}
 			}})
 	]
 

@@ -5,9 +5,9 @@ export default function itemReducer(state = [], action){
 
 	if(state.length == 0){
 		state = [
-			new Item({type:'state', name:'prioritised'}),
-			new Item({type:'state', name:'in dev'}),
-			new Item({type:'state', name:'done'}),
+			new Item({id: 'PRIORITY', type:'state', name:'prioritised'}),
+			new Item({id: 'DEV', type:'state', name:'in dev'}),
+			new Item({id: 'DONE', type:'state', name:'done'}),
 		]
 	}
 	switch(action.type){
