@@ -15,10 +15,11 @@ class ItemList extends React.Component{
 		return <div>
 			<h1>Items</h1>
 			<table className="table">
-				<thead>
-					<th>Id</th>
-					<th>Type</th>
-					<th>Name</th>
+				<thead><tr>
+					<td>Id</td>
+					<td>Type</td>
+					<td>Name</td>
+					</tr>
 				</thead>
 				<tbody>
 				{rows}
