@@ -11,6 +11,9 @@ export default function itemReducer(state = [], action){
 		]
 	}
 	switch(action.type){
+		case 'LOAD':
+			state = action.data.item.map(i => {return new Item(i)})
+		break;
 		case 'ADD_ITEM': 
 			let item = new Item(action.item);
 			state = [...state, item]

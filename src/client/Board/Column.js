@@ -8,7 +8,7 @@ import {flow} from 'lodash';
 class Column extends React.Component{
 	render(){
 		let cards = this.props.items.map(i => {
-			return <Card id={i.getId()} item={i} />
+			return <Card key={i.getId()} id={i.getId()} item={i} />
 		})
 		const { isOver, canDrop, connectDropTarget } = this.props;
 		return connectDropTarget(<div className="well column">

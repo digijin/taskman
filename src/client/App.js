@@ -19,22 +19,34 @@ export default class App {
 	constructor(container){
 		this.container = container;
 		let preloadedState = localStorage.getItem('state');
-		if(preloadedState){
-			let data = JSON.parse(preloadedState);
-			preloadedState = {
-				item: data.item.map(i => {return new Item(i)}),
-				type: data.type.map(i => {return new Type(i)}),
-			}
-		}else{
+		// if(preloadedState){
+		// 	let data = JSON.parse(preloadedState);
+		// 	preloadedState = {
+		// 		item: data.item.map(i => {return new Item(i)}),
+		// 		type: data.type.map(i => {return new Type(i)}),
+		// 	}
+		// }else{
 			preloadedState = {item:[], type:[]}
-		}
+		// }
+		//get store with localstorage data
 		this.store = createStore(reducer, preloadedState);
 		this.store.subscribe(this.render.bind(this))
 		this.store.subscribe(this.save.bind(this))
+		//then override store with server data
+		this.load();
 		this.render();
 	}
 	render(){
 		ReactDOM.render(<Provider store={this.store}><AppContainer /></Provider>, this.container);
+	}
+	load(){
+		$.ajax( {
+			type: 'GET',
+			url: 'http://localhost:2468/state',
+			success: (data)=>{
+				this.store.dispatch({type: 'LOAD', data: data})
+			}
+		})
 	}
 	save(){
 
