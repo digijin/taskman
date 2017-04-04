@@ -55,7 +55,7 @@ function mapStateToProps(state: Object, props: Object): Object {
 function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	return {
 		update: (id, field, value) => {
-			dispatch({ type: 'UPDATE_ITEM', id:id, field:field, value:value });
+			dispatch({ type: 'UPDATE_ITEM_FIELD', id:id, field:field, value:value });
 		}
 	};
 }
