@@ -24,8 +24,10 @@ class ItemAdd extends React.Component {
 	render() {
 		return <div className="panel panel-default">
 			<div className="panel-heading">Add Item</div>
-			<Form onChange={this.formChange} state={this.state} />
-			<input onClick={this.submit} type="submit" />
+			<div className="panel-body">
+				<Form onChange={this.formChange} state={this.state} />
+				<input onClick={this.submit} type="submit" />
+			</div>
 		</div>
 	}
 	formChange(e){
