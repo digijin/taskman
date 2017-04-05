@@ -8,57 +8,79 @@ import { connect } from 'react-redux';
 import type Type from 'Type';
 import type Item from 'Item';
 
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import TextField from 'material-ui/TextField';
+
 type Props = {
 	items: Array<Item>,
 	types: Array<Type>
 }
 
 class ItemForm extends React.Component {
-	
+
 	constructor(props) {
 		super(props)
 		this.state = props.state
 	}
-	changeField(field, value){
+	changeField(field, value) {
 		this.state[field] = value;
 		this.setState(this.state)
 		this.props.onChange(this.state)
 	}
 
-	dataFields(type){
+	dataFields(type) {
 		return type.getDataFields().map(f => {
-
-			return (<div key={f}>
-				{f}<br />
-				<input onChange={e => {
-					this.changeField(f, e.target.value)
-				}} type="text" placeholder={f} value={this.state[f]} />
-			</div>
-			)
+			return <div><TextField key={f}
+			floatingLabelText={f}
+			onChange={(e,i,v) => {
+					this.changeField(f, v)
+				}}
+			value={this.state[f]} /></div>
 		})
 	}
-	attributeFields(type){
+	attributeFields(type) {
+
 		return type.getAttributeFields().map(f => {
-			let fieldOptions = this.props.items.filter(i => {
-				return i.getType() == f
-			}).map(i => {
-				return { value: i.getId(), label: i.getName() }
-			});
-			return (<div key={f}>
-				{f}<br />
-				<Select
-					name="form-field-name"
-					value={this.state[f]}
-					options={fieldOptions}
-					onChange={e => {
-						if(e) this.changeField(f, e.value)
-							// this.state[f] = e.value;
-						// this.setState(this.state)
-					}}
-				/>
-			</div>
-			)
+			//for each field
+			return <SelectField
+				floatingLabelText={f}
+				value={this.state[f]}
+				onChange={(e,i,v) => {
+					this.changeField(f, v)
+				}} >
+				{this.props.items.filter(i => {
+					return i.getType() == f
+				}).map(i=>{
+					return <MenuItem value={i.getId()} primaryText={i.getName()} />
+				})}
+			</SelectField>
+
 		})
+		
+
+
+
+		// return type.getAttributeFields().map(f => {
+		// 	let fieldOptions = this.props.items.filter(i => {
+		// 		return i.getType() == f
+		// 	}).map(i => {
+		// 		return { value: i.getId(), label: i.getName() }
+		// 	});
+		// 	return (<div key={f}>
+		// 		{f}<br />
+		// 		<Select
+		// 			name="form-field-name"
+		// 			value={this.state[f]}
+		// 			options={fieldOptions}
+		// 			onChange={e => {
+		// 				if (e) this.changeField(f, e.value)
+		// 			}}
+		// 		/>
+		// 	</div>
+		// 	)
+
+		// })
 	}
 
 	render() {
@@ -74,17 +96,24 @@ class ItemForm extends React.Component {
 			fields = dataFields.concat(attributeFields);
 		}
 		return <div>
-				type: 
-				<Select 
-					value={this.state.type}
-					onChange={(e) => { 
-						// this.setState({ type: e.value }); 
-						this.changeField('type', e.value)
-					}}
-					options={typeOptions}
-				/>
-				{fields}
-			</div>
+			<SelectField
+				floatingLabelText="Item Type"
+				value={this.state.type}
+				onChange={(e, i, v) => {
+					// this.setState({ type: e.value }); 
+					this.changeField('type', v)
+				}}
+			>
+				<MenuItem value={null} primaryText="" />
+				{this.props.types.map(t => {
+					let val = t.getId();
+					let label = t.getName()
+					return <MenuItem value={val} primaryText={label} />
+				})}
+			</SelectField>
+			<br />
+			{fields}
+		</div>
 	}
 }
 function mapStateToProps(state: Object, props: Object): Object {
