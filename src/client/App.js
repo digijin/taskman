@@ -14,9 +14,16 @@ import Item from 'Item'
 
 import $ from 'jquery'
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 export default class App {
 	container:HTMLDivElement;
 	constructor(container){
+		
+		injectTapEventPlugin();
+
 		this.container = container;
 		let preloadedState = localStorage.getItem('state');
 		// if(preloadedState){
@@ -37,7 +44,9 @@ export default class App {
 		this.render();
 	}
 	render(){
-		ReactDOM.render(<Provider store={this.store}><AppContainer /></Provider>, this.container);
+		ReactDOM.render(<Provider store={this.store}>
+			<MuiThemeProvider><AppContainer /></MuiThemeProvider>
+			</Provider>, this.container);
 	}
 	load(){
 		$.ajax( {

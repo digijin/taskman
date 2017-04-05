@@ -1,4 +1,5 @@
 // @flow
+import Item from 'Item'
 
 export default class Type{
 	id: number;
@@ -26,6 +27,20 @@ export default class Type{
 	}
 	getAttributeFields():Array<string>{
 		return Object.keys(this.attributeFields)
+	}
+
+	/**for testing filters */
+	mockItem():Item{
+		let data = {}
+		data.id = "mock"
+		data.name = "mock"
+		this.getDataFields().forEach(f => {
+			data[f] = "mock"
+		})
+		this.getAttributeFields().forEach(f => {
+			data[f] = "mock"
+		})
+		return new Item(data);
 	}
 
 }
