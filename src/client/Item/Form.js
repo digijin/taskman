@@ -33,9 +33,12 @@ class ItemForm extends React.Component {
 	dataFields(type) {
 		return type.getDataFields().map((f, i) => {
 			// console.log('asd');
+			let data = type.getDataFieldData(f);
+			 
 			
 			return <div key={i}><TextField key={f}
 			floatingLabelText={f}
+			multiLine={data=="text"}
 			onChange={(e) => {
 					// console.log('datafield changing')
 					this.changeField(f, e.target.value)

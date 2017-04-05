@@ -25,8 +25,14 @@ export default class Type{
 	getDataFields():Array<string>{
 		return Object.keys(this.dataFields)
 	}
+	getDataFieldData(field:string):Object{
+		return this.dataFields[field]
+	}
 	getAttributeFields():Array<string>{
 		return Object.keys(this.attributeFields)
+	}
+	getAttributeFieldData(field:string):Object{
+		return this.attributeFields[field]
 	}
 
 	/**for testing filters */
