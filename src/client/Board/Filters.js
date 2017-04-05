@@ -5,6 +5,10 @@ import type Type from 'Type'
 import {TextField} from 'material-ui'
 import {RaisedButton, FlatButton} from 'material-ui'
 import {List, ListItem} from 'material-ui/List'
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+
+
+import ActionDelete from 'material-ui/svg-icons/action/delete';
 
 import Select from 'react-select'
 
@@ -69,27 +73,30 @@ class Filters extends React.Component{
         let operatorOptions = ['=', '!='].map(o => {return {value: o, label: o}})
         
         let filters = this.state.filters.map((f, i) => {
-            return <ListItem key={i} primaryText={f} />
+            return <ListItem key={i} primaryText={f} rightIcon={<ActionDelete />} />
         })
 
-        return <div className="panel panel-default">
-			<div className="panel-heading">filters</div>
-			<div className="panel-body">
-            <TextField 
-            value={this.state.newFilter}
-            onChange={this.onNewFilterChange}
-            floatingLabelText="Filter code"
-            hintText="e.g. (item.state == 'DEV')"
-            errorText={this.state.newFilterError}
-             />
-            <FlatButton label="Add" onClick={this.addNewFilter} 
-            disabled={!!this.state.newFilterError}/>
-            <List>
-                {filters}
-            </List>
+        return <Card>
+            <CardHeader title="Filters" 
+                subtitle="hide unneeded items"
+                actAsExpander={true}
+                showExpandableButton={true} />
+            <CardText expandable={true}>
+                <TextField 
+                value={this.state.newFilter}
+                onChange={this.onNewFilterChange}
+                floatingLabelText="Filter code"
+                hintText="e.g. (item.state == 'DEV')"
+                errorText={this.state.newFilterError}
+                />
+                <FlatButton label="Add" onClick={this.addNewFilter} 
+                disabled={!!this.state.newFilterError}/>
+                <List>
+                    {filters}
+                </List>
+            </CardText>
+        </Card>
 
-            </div>
-        </div>
     }
 
 }
