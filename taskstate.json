@@ -19,7 +19,7 @@
       "type": "task",
       "name": "Test",
       "description": "testing stuff",
-      "state": "PRIORITY",
+      "state": "DONE",
       "id": "1491322258678"
     },
     {

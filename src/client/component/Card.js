@@ -38,10 +38,12 @@ class Card extends React.Component{
 	render(){
 		const { isDragging, connectDragSource, text } = this.props;
 		return connectDragSource(<div style={{opacity: isDragging ? 0.5 : 1}} className="card panel">
+        <div className="edit">
+          <Link to={'/item/edit/'+this.props.item.getId()}><span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link>
+        </div>
 				<h4 className="title">{this.props.item.getName()}</h4>
 				<p className="text">{this.props.item.description}</p>
-        <Link className="btn btn-default" to={'/item/edit/'+this.props.item.getId()}>edit</Link>
-        <span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        
 		</div>)
 	}
 }

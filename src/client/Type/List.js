@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 class TypeList extends React.Component{
 	render() {
@@ -14,15 +15,26 @@ class TypeList extends React.Component{
 				<td>{t.getName()}</td>
 				<td>{t.getDataFields().join(', ')}</td>
 				<td>{t.getAttributeFields().join(', ')}</td>
+				<td>
+					<Link className="btn btn-default" to={'/type/'+t.getId()}>
+						<span className="glyphicon glyphicon-list"></span>
+					</Link>
+					<Link className="btn btn-default" to={'/type/edit/'+t.getId()}>
+					<span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</Link>
+				</td>
 			</tr>
 		})
 		return <div>
 			<h1>Types</h1>
 			<table className="table">
 				<thead>
-					<th>Name</th>
-					<th>data fields</th>
-					<th>attributes</th>
+					<tr>
+						<th>Name</th>
+						<th>data fields</th>
+						<th>attributes</th>
+						<th>actions</th>
+					</tr>
 				</thead>
 				<tbody>
 				{rows}
