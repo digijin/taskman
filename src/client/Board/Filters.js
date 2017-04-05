@@ -54,14 +54,16 @@ class Filters extends React.Component{
     }
 
     addNewFilter = (e) => {
+        console.log('sta', this.state);
         
         if(this.state.newFilterError){
             return
         }else{
+            let newFilters = [this.state.newFilter, ...this.state.filters]
             this.setState({
-                filters:[this.state.newFilter, ...this.state.filters], 
+                filters:newFilters, 
                 newFilter:""})
-            this.props.onChange(this.state.filters)
+            this.props.onChange(newFilters)
         }
     }
 

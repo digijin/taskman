@@ -28,7 +28,7 @@
       "description": "just do it",
       "storyPoints": "1",
       "id": "1491323991078",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "task",
@@ -36,7 +36,7 @@
       "description": "123",
       "storyPoints": "2",
       "id": "1491399386805",
-      "state": "PRIORITY"
+      "state": "DEV"
     },
     {
       "type": "state",
@@ -49,14 +49,14 @@
       "description": "te",
       "storyPoints": "2",
       "id": "1491403170326",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "task",
       "name": "this is a really long task name that is really long",
       "description": "what a description check out this description its like super loong and has a lot of characters its amazing",
       "storyPoints": "10000000000000000",
-      "state": "PRIORITY",
+      "state": "DONE",
       "id": "1491405848624"
     }
   ],

@@ -27,14 +27,28 @@ class Board extends React.Component{
 	}
 
 	render(){
+		console.log('asd', this.state.filters);
+		
 		let type = this.props.match.params.type;
 		let typeData = this.props.types.filter(t => {return t.getId()==type})[0]
 		let column = this.props.match.params.column;
 
 		let items = this.props.items.filter(i => {
 			return i.getType() == type;
+		}).filter(i => {
+			//that confirm to all filters
+			let item = i;
+			for(let f = 0; f < this.state.filters.length; f++){
+				let filter =  this.state.filters[f];
+				if(!eval(filter)){
+					return false
+				}
+			}
+			return true;
 		})
+
 		let columns = this.props.items.filter(i => {
+			//items of the right type
 			return i.getType() == column;
 		}).map(i => {
 			//TODO none column
@@ -60,9 +74,7 @@ class Board extends React.Component{
 		</div>
 	}
 	onFilterChange = (e) => {
-		console.log('e', e);
-		
-		
+		this.setState({filters:e})
 	}
 }
 
