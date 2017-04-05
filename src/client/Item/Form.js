@@ -31,10 +31,13 @@ class ItemForm extends React.Component {
 
 	dataFields(type) {
 		return type.getDataFields().map(f => {
+			// console.log('asd');
+			
 			return <div><TextField key={f}
 			floatingLabelText={f}
-			onChange={(e,i,v) => {
-					this.changeField(f, v)
+			onChange={(e) => {
+					// console.log('datafield changing')
+					this.changeField(f, e.target.value)
 				}}
 			value={this.state[f]} /></div>
 		})
@@ -58,29 +61,6 @@ class ItemForm extends React.Component {
 
 		})
 		
-
-
-
-		// return type.getAttributeFields().map(f => {
-		// 	let fieldOptions = this.props.items.filter(i => {
-		// 		return i.getType() == f
-		// 	}).map(i => {
-		// 		return { value: i.getId(), label: i.getName() }
-		// 	});
-		// 	return (<div key={f}>
-		// 		{f}<br />
-		// 		<Select
-		// 			name="form-field-name"
-		// 			value={this.state[f]}
-		// 			options={fieldOptions}
-		// 			onChange={e => {
-		// 				if (e) this.changeField(f, e.value)
-		// 			}}
-		// 		/>
-		// 	</div>
-		// 	)
-
-		// })
 	}
 
 	render() {
