@@ -1,9 +1,9 @@
 
 import React, { PropTypes } from 'react';
-import {DragSource} from 'react-dnd'
-import {Link} from 'react-router-dom'
+import { DragSource } from 'react-dnd'
+import { Link } from 'react-router-dom'
 // import { ItemTypes } from './Constants';
-
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 
 /**
@@ -13,7 +13,7 @@ const cardSource = {
   beginDrag(props) {
     return {
       id: props.id,
-	  item: props.item
+      item: props.item
     };
   }
 };
@@ -34,20 +34,20 @@ const propTypes = {
   connectDragSource: PropTypes.func.isRequired
 };
 
-class Card extends React.Component{
-	render(){
-		const { isDragging, connectDragSource, text } = this.props;
-		return connectDragSource(<div style={{opacity: isDragging ? 0.5 : 1}} className="card panel">
-        <div className="edit">
-          <Link to={'/item/edit/'+this.props.item.getId()}><span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link>
-        </div>
-				<h4 className="title">{this.props.item.getName()}</h4>
-				<p className="text">{this.props.item.description}</p>
-        
-		</div>)
-	}
+class ItemCard extends React.Component {
+  render() {
+    const { isDragging, connectDragSource, text } = this.props;
+
+    return connectDragSource(<div className="edit">
+      <Card style={{ "margin-bottom": 10, opacity: isDragging ? 0.5 : 1 }} className="card">
+        <CardTitle title={this.props.item.getName()}/>
+        <CardText>{this.props.item.description}</CardText>
+      </Card>
+    </div>)
+
+  }
 }
-Card.propTypes = propTypes;
+ItemCard.propTypes = propTypes;
 
 // Export the wrapped component:
-export default DragSource('card', cardSource, collect)(Card);
+export default DragSource('card', cardSource, collect)(ItemCard);

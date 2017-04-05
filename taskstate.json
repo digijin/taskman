@@ -19,7 +19,7 @@
       "type": "task",
       "name": "Test",
       "description": "testing stuff",
-      "state": "DONE",
+      "state": "PRIORITY",
       "id": "1491322258678"
     },
     {
@@ -28,7 +28,7 @@
       "description": "just do it",
       "storyPoints": "1",
       "id": "1491323991078",
-      "state": "PRIORITY"
+      "state": "DEV"
     },
     {
       "type": "task",
@@ -36,7 +36,28 @@
       "description": "123",
       "storyPoints": "2",
       "id": "1491399386805",
+      "state": "PRIORITY"
+    },
+    {
+      "type": "state",
+      "name": "Release",
+      "id": "1491401320440"
+    },
+    {
+      "type": "task",
+      "name": "test",
+      "description": "te",
+      "storyPoints": "2",
+      "id": "1491403170326",
       "state": "DEV"
+    },
+    {
+      "type": "task",
+      "name": "this is a really long task name that is really long",
+      "description": "what a description check out this description its like super loong and has a lot of characters its amazing",
+      "storyPoints": "10000000000000000",
+      "state": "PRIORITY",
+      "id": "1491405848624"
     }
   ],
   "type": [

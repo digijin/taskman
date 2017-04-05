@@ -23,7 +23,7 @@ class ItemForm extends React.Component {
 		super(props)
 		this.state = props.state
 	}
-	
+
 	changeField(field, value) {
 		this.state[field] = value;
 		this.setState(this.state)
@@ -31,10 +31,10 @@ class ItemForm extends React.Component {
 	}
 
 	dataFields(type) {
-		return type.getDataFields().map(f => {
+		return type.getDataFields().map((f, i) => {
 			// console.log('asd');
 			
-			return <div><TextField key={f}
+			return <div key={i}><TextField key={f}
 			floatingLabelText={f}
 			onChange={(e) => {
 					// console.log('datafield changing')

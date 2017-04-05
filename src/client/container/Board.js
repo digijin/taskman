@@ -21,6 +21,11 @@ type Props = {
 
 class Board extends React.Component{
 
+	constructor(props){
+		super(props);
+		this.state = {filters:[]}
+	}
+
 	render(){
 		let type = this.props.match.params.type;
 		let typeData = this.props.types.filter(t => {return t.getId()==type})[0]
@@ -48,11 +53,16 @@ class Board extends React.Component{
 
 		return <div>
 			{type} - {column}
-			<Filters type={typeData} />
+			<Filters onChange={this.onFilterChange} type={typeData} />
 			<div className="board">
 				{columns}
 			</div>
 		</div>
+	}
+	onFilterChange = (e) => {
+		console.log('e', e);
+		
+		
 	}
 }
 
