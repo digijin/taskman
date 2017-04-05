@@ -4,6 +4,7 @@ import type Type from 'Type'
 
 import {TextField} from 'material-ui'
 import {RaisedButton, FlatButton} from 'material-ui'
+import {List, ListItem} from 'material-ui/List'
 
 import Select from 'react-select'
 
@@ -67,6 +68,10 @@ class Filters extends React.Component{
         })
         let operatorOptions = ['=', '!='].map(o => {return {value: o, label: o}})
         
+        let filters = this.state.filters.map((f, i) => {
+            return <ListItem key={i} primaryText={f} />
+        })
+
         return <div className="panel panel-default">
 			<div className="panel-heading">filters</div>
 			<div className="panel-body">
@@ -79,6 +84,9 @@ class Filters extends React.Component{
              />
             <FlatButton label="Add" onClick={this.addNewFilter} 
             disabled={!!this.state.newFilterError}/>
+            <List>
+                {filters}
+            </List>
 
             </div>
         </div>
