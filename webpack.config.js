@@ -59,7 +59,7 @@ var webpackConfig = {
 				loader: "style-loader!css-loader"
 			},
 			{   test: /\.(ttf|eot|svg|TTF|woff2|woff)$/,
-				loader: "file-loader"
+				loader: "file-loader?publicPath=/"
 			}
 		]
 	},

@@ -41,11 +41,7 @@ class Card extends React.Component{
 				<h4 className="title">{this.props.item.getName()}</h4>
 				<p className="text">{this.props.item.description}</p>
         <Link className="btn btn-default" to={'/item/edit/'+this.props.item.getId()}>edit</Link>
-        <div className="alert alert-danger" role="alert">
-        <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span className="sr-only">Error:</span>
-          Enter a valid email address
-        </div>
+        <span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
 		</div>)
 	}
 }
