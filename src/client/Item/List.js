@@ -6,8 +6,8 @@ import {Link} from 'react-router-dom'
 
 class ItemList extends React.Component{
 	render() {
-		let rows = this.props.item.map(t => {
-			return <tr>
+		let rows = this.props.item.map((t, i) => {
+			return <tr key={i}>
 				<td>{t.getId()}</td>
 				<td>{t.getType()}</td>
 				<td>{t.getName()}</td>

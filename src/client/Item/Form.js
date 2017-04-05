@@ -23,6 +23,7 @@ class ItemForm extends React.Component {
 		super(props)
 		this.state = props.state
 	}
+	
 	changeField(field, value) {
 		this.state[field] = value;
 		this.setState(this.state)
@@ -47,6 +48,7 @@ class ItemForm extends React.Component {
 		return type.getAttributeFields().map(f => {
 			//for each field
 			return <SelectField
+				key={f}
 				floatingLabelText={f}
 				value={this.state[f]}
 				onChange={(e,i,v) => {
@@ -55,7 +57,7 @@ class ItemForm extends React.Component {
 				{this.props.items.filter(i => {
 					return i.getType() == f
 				}).map(i=>{
-					return <MenuItem value={i.getId()} primaryText={i.getName()} />
+					return <MenuItem key={i.getId()} value={i.getId()} primaryText={i.getName()} />
 				})}
 			</SelectField>
 
@@ -84,11 +86,10 @@ class ItemForm extends React.Component {
 					this.changeField('type', v)
 				}}
 			>
-				<MenuItem value={null} primaryText="" />
 				{this.props.types.map(t => {
 					let val = t.getId();
 					let label = t.getName()
-					return <MenuItem value={val} primaryText={label} />
+					return <MenuItem key={val} value={val} primaryText={label} />
 				})}
 			</SelectField>
 			<br />
