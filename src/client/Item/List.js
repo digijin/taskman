@@ -18,7 +18,6 @@ class ItemList extends React.Component{
 			</TableRow>
 		})
 		return <div>
-			<h1>Items</h1>
 			<Table>
 				<TableHeader><TableRow>
 					<TableHeaderColumn>Id</TableHeaderColumn>

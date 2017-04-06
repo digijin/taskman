@@ -26,7 +26,6 @@ class TypeList extends React.Component{
 			</TableRow>
 		})
 		return <div>
-			<h1>Types</h1>
 			<Table>
 				<TableHeader>
 					<TableRow>
