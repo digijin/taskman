@@ -43,7 +43,6 @@ class Filters extends React.Component{
             try{
                 result = eval(code)
             } catch (err) {
-                // console.log(err)
                 errMessage = err.message
             }
             if(!errMessage){
@@ -62,7 +61,6 @@ class Filters extends React.Component{
     }
 
     addNewFilter = (e) => {
-        console.log('sta', this.state);
         
         if(this.state.newFilterError){
             return
@@ -75,9 +73,15 @@ class Filters extends React.Component{
             localStorage.setItem('filters', JSON.stringify(newFilters))
         }
     }
+    deleteFilter = (index) => {
+        this.state.filters.splice(index, 1);
+        this.setState(this.state);
+        this.props.onChange(this.state.filters)
+        localStorage.setItem('filters', JSON.stringify(this.state.filters))
+
+    }
 
     render(){
-        // console.log('type', this.props.type, this.props.type.getAttributeFields());
 
         let fieldOptions = this.props.type.getAttributeFields().map(o =>{
             return {value: o, label: o}
@@ -109,7 +113,12 @@ class Filters extends React.Component{
                     {this.state.filters.map((f, i) => {
                         return <TableRow key={i}>
                             <TableRowColumn>{f}</TableRowColumn>
-                            <TableRowColumn><Toggle label="" /></TableRowColumn>
+                            <TableRowColumn>
+                                <Toggle label="" />
+                            </TableRowColumn>
+                            <TableRowColumn>
+                                <FlatButton icon={<ActionDelete onClick={() =>{this.deleteFilter(i)}} />}/>
+                            </TableRowColumn>
                         </TableRow>
                     })}
                     </TableBody>

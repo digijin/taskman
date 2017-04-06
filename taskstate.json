@@ -19,7 +19,7 @@
       "type": "task",
       "name": "Test",
       "description": "testing stuff",
-      "state": "PRIORITY",
+      "state": "DEV",
       "id": "1491322258678"
     },
     {
@@ -28,7 +28,7 @@
       "description": "just do it",
       "storyPoints": "1",
       "id": "1491323991078",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "task",
@@ -49,15 +49,23 @@
       "description": "te",
       "storyPoints": "2",
       "id": "1491403170326",
-      "state": "PRIORITY"
+      "state": "DEV"
     },
     {
       "type": "task",
       "name": "this is a really long task name that is really long",
       "description": "what a description check out this description its like super loong and has a lot of characters its amazing",
       "storyPoints": "10000000000000000",
-      "state": "DEV",
+      "state": "PRIORITY",
       "id": "1491405848624"
+    },
+    {
+      "type": "task",
+      "name": "better ids",
+      "description": "make the ids like TASK-1",
+      "storyPoints": "1",
+      "id": "1491467210563",
+      "state": "DEV"
     }
   ],
   "type": [

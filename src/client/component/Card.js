@@ -4,7 +4,7 @@ import { DragSource } from 'react-dnd'
 import { Link } from 'react-router-dom'
 // import { ItemTypes } from './Constants';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-
+import FlatButton from 'material-ui/FlatButton';
 
 /**
  * Implements the drag source contract.
@@ -40,8 +40,16 @@ class ItemCard extends React.Component {
 
     return connectDragSource(<div className="edit">
       <Card style={{ "margin-bottom": 10, opacity: isDragging ? 0.5 : 1 }} className="card">
+        <CardHeader 
+          title={this.props.item.getId()}
+          actAsExpander={true}
+          showExpandableButton={true} />
         <CardTitle title={this.props.item.getName()}/>
-        <CardText>{this.props.item.description}</CardText>
+        <CardText expandable={true}>{this.props.item.description}</CardText>
+        <CardActions expandable={true}>
+          <Link to={'/item/edit/'+this.props.item.getId()}><FlatButton label="edit" /></Link>
+        </CardActions>
+
       </Card>
     </div>)
 
