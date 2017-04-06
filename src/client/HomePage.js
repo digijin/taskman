@@ -5,6 +5,7 @@ import {
   Step,
   Stepper,
   StepLabel,
+  StepButton,
 } from 'material-ui/Stepper';
 
 import {Paper} from 'material-ui'
@@ -35,20 +36,24 @@ class HomePage extends React.Component{
                 <div style={{"padding-left": 30,"padding-right": 30}} className="jumbotron">
                     <h1>HyperWire</h1>
                     <p>task management software for developers</p>
-                    <Stepper activeStep={stepIndex}>
+                    <Stepper linear={false} activeStep={stepIndex}>
                     <Step>
-                        <StepLabel>What is it?</StepLabel>
+                        <StepButton onClick={() => this.setState({stepIndex: 0})}>
+                            What is it?
+                        </StepButton>
                     </Step>
                     <Step>
-                        <StepLabel>Why do I want to use it?</StepLabel>
+                        <StepButton onClick={() => this.setState({stepIndex: 1})}>
+                            Why do I want to use it?
+                        </StepButton>
                     </Step>
                     <Step>
-                        <StepLabel>How do I get started?</StepLabel>
+                        <StepButton onClick={() => this.setState({stepIndex: 2})}>
+                            How do I get started?
+                        </StepButton>
                     </Step>
                     </Stepper>
-
-                    <RaisedButton onClick={this.nextStep} label="Next" />
-                    <br /><br />
+                    <br />
                     <Paper style={{padding: 40}}>
                         {content[stepIndex]}
                     </Paper>

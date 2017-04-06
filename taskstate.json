@@ -21,7 +21,7 @@
       "description": "lets see how it looks",
       "storyPoints": "1",
       "id": "TASK-1",
-      "state": "PRIORITY"
+      "state": "DEV"
     },
     {
       "type": "task",
@@ -29,13 +29,14 @@
       "description": "deal with overlapping ids",
       "storyPoints": "1",
       "id": "TASK-2",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "task",
       "name": "edit item materialuiify",
       "description": "not using dark theme right",
-      "id": "TASK-3"
+      "id": "TASK-3",
+      "state": "PRIORITY"
     }
   ],
   "type": [
