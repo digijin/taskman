@@ -21,7 +21,7 @@
       "description": "lets see how it looks",
       "storyPoints": "1",
       "id": "TASK-1",
-      "state": "DEV"
+      "state": "DONE"
     },
     {
       "type": "task",
@@ -36,7 +36,26 @@
       "name": "edit item materialuiify",
       "description": "not using dark theme right",
       "id": "TASK-3",
-      "state": "PRIORITY"
+      "state": "DEV"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "id": "TASK-4"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "kiss borshy",
+      "description": "kiss",
+      "storyPoints": "1",
+      "state": "DONE",
+      "id": "TASK-5"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "id": "TASK-6"
     }
   ],
   "type": [
@@ -72,5 +91,5 @@
       "id": "task"
     }
   ],
-  "counter": 4
+  "counter": 7
 }
