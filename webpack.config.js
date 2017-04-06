@@ -47,7 +47,7 @@ var webpackConfig = {
 				loader: "html"
 			},
 			{   test: /\.png$/,
-				loader: "img-element!url"
+				loader: "file-loader?publicPath=/"
 			},
 			// {   test: /\.css$/,
 			//     loader: "style-loader!css-loader"
