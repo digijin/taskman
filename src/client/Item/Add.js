@@ -57,6 +57,7 @@ class ItemAdd extends React.Component {
 	}
 	submit() {
 		this.props.submit(this.state);
+		this.hide();
 	}
 }
 function mapStateToProps(state: Object, props: Object): Object {
