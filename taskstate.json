@@ -17,11 +17,25 @@
     },
     {
       "type": "task",
-      "name": "test",
-      "description": "testing stuff",
+      "name": "add item modal form",
+      "description": "lets see how it looks",
       "storyPoints": "1",
       "id": "TASK-1",
-      "state": "PRIORITY"
+      "state": "DEV"
+    },
+    {
+      "type": "task",
+      "name": "add bug/story type",
+      "description": "deal with overlapping ids",
+      "storyPoints": "1",
+      "id": "TASK-2",
+      "state": "DEV"
+    },
+    {
+      "type": "task",
+      "name": "edit item materialuiify",
+      "description": "not using dark theme right",
+      "id": "TASK-3"
     }
   ],
   "type": [
@@ -57,5 +71,5 @@
       "id": "task"
     }
   ],
-  "counter": 1
+  "counter": 4
 }

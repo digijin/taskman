@@ -66,7 +66,6 @@ class Board extends React.Component{
 				type={column} />)
 
 		return <div>
-			{type} - {column}
 			<Filters onChange={this.onFilterChange} type={typeData} />
 			<div className="board">
 				{columns}

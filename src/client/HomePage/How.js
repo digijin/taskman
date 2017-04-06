@@ -2,10 +2,21 @@ import React from 'react'
 export default class How extends React.Component{
     render() {
         return <div>
+        <p>
             create a hyperwire.config.js file
-            it should output an object of the following signature:
+            it should export default object of the following signature:
+        </p>
             <pre> 
-                some code here
+                {`
+                {
+                    types:[
+                        {
+                            id: "UNIQUE_ID",
+                            name: "human readable name"
+                        }
+                    ]
+                }
+                `}
             </pre>
 
         </div>
