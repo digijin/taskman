@@ -3,7 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
-
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 class TypeList extends React.Component{
 	render() {
 		// let rows = [];
@@ -11,35 +11,35 @@ class TypeList extends React.Component{
 		// 	rows.push(<div>{t.name}</div>)
 		// })
 		let rows = this.props.type.map(t => {
-			return <tr>
-				<td>{t.getName()}</td>
-				<td>{t.getDataFields().join(', ')}</td>
-				<td>{t.getAttributeFields().join(', ')}</td>
-				<td>
+			return <TableRow key={t.getId()}>
+				<TableRowColumn>{t.getName()}</TableRowColumn>
+				<TableRowColumn>{t.getDataFields().join(', ')}</TableRowColumn>
+				<TableRowColumn>{t.getAttributeFields().join(', ')}</TableRowColumn>
+				<TableRowColumn>
 					<Link className="btn btn-default" to={'/type/'+t.getId()}>
 						<span className="glyphicon glyphicon-list"></span>
 					</Link>
 					<Link className="btn btn-default" to={'/type/edit/'+t.getId()}>
 					<span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
 					</Link>
-				</td>
-			</tr>
+				</TableRowColumn>
+			</TableRow>
 		})
 		return <div>
 			<h1>Types</h1>
-			<table className="table">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>data fields</th>
-						<th>attributes</th>
-						<th>actions</th>
-					</tr>
-				</thead>
-				<tbody>
+			<Table>
+				<TableHeader>
+					<TableRow>
+						<TableHeaderColumn>Name</TableHeaderColumn>
+						<TableHeaderColumn>data fields</TableHeaderColumn>
+						<TableHeaderColumn>attributes</TableHeaderColumn>
+						<TableHeaderColumn>actions</TableHeaderColumn>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
 				{rows}
-				</tbody>
-			</table>
+				</TableBody>
+			</Table>
 		</div>
 	}
 }

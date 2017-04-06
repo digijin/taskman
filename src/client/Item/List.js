@@ -3,32 +3,33 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 class ItemList extends React.Component{
 	render() {
 		let rows = this.props.item.map((t, i) => {
-			return <tr key={i}>
-				<td>{t.getId()}</td>
-				<td>{t.getType()}</td>
-				<td>{t.getName()}</td>
-				<td>
+			return <TableRow key={i}>
+				<TableRowColumn>{t.getId()}</TableRowColumn>
+				<TableRowColumn>{t.getType()}</TableRowColumn>
+				<TableRowColumn>{t.getName()}</TableRowColumn>
+				<TableRowColumn>
 					<Link className="btn btn-default" to={'/item/edit/'+t.getId()}>edit</Link>
-				</td>
-			</tr>
+				</TableRowColumn>
+			</TableRow>
 		})
 		return <div>
 			<h1>Items</h1>
-			<table className="table">
-				<thead><tr>
-					<td>Id</td>
-					<td>Type</td>
-					<td>Name</td>
-					</tr>
-				</thead>
-				<tbody>
+			<Table>
+				<TableHeader><TableRow>
+					<TableHeaderColumn>Id</TableHeaderColumn>
+					<TableHeaderColumn>Type</TableHeaderColumn>
+					<TableHeaderColumn>Name</TableHeaderColumn>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
 				{rows}
-				</tbody>
-			</table>
+				</TableBody>
+			</Table>
 		</div>
 	}
 }

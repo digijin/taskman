@@ -7,7 +7,7 @@ export default class TypeIndex extends React.Component{
 	render() {
 		return <div>
 			<List />
-			<Add />
+			
 		</div>
 	}
 }

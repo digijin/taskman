@@ -3,6 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Form from './Form'
 
+import Dialog from 'material-ui/Dialog';
+
 class ItemEdit extends React.Component{
 	
 	constructor(props) {
@@ -14,6 +16,7 @@ class ItemEdit extends React.Component{
 		if(!id) id = props.match.params.id;
 
 		let item = this.props.items.filter(i=>{return i.getId() == id})[0];
+
 		this.state = item
 	}
 	formChange(e){
@@ -23,6 +26,12 @@ class ItemEdit extends React.Component{
 		this.props.submit(this.state);
 	}
 	render(){
+		if(!this.state){
+			return <Dialog title="Error" open="true">
+					could not find item
+				</Dialog>
+		}
+
 		return <div className="panel panel-default">
 			<div className="panel-heading">Edit Item</div>
 			<div className="panel-body">

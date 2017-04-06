@@ -4,7 +4,8 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
-        "**/.DS_Store": true
+        "**/.DS_Store": true,
+        "**/.vscode": true
     },
     "editor.tabSize": 4,
     "editor.renderWhitespace": "all"

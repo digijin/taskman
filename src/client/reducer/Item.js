@@ -1,7 +1,7 @@
 
 import Item from 'Item'
 
-export default function itemReducer(state = [], action){
+export default function itemReducer(state = [], action, {counter}){
 
 	if(state.length == 0){
 		state = [
@@ -16,7 +16,11 @@ export default function itemReducer(state = [], action){
 				state = action.data.item.map(i => {return new Item(i)})
 		break;
 		case 'ADD_ITEM': 
-			let item = new Item(action.item);
+			//make new ID
+			let i = action.item
+			i.id = i.type.toUpperCase()+'-'+counter;
+
+			let item = new Item(i);
 			state = [...state, item]
 		break;
 		case 'UPDATE_ITEM':

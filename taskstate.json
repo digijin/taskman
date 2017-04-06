@@ -66,6 +66,27 @@
       "storyPoints": "1",
       "id": "1491467210563",
       "state": "DEV"
+    },
+    {
+      "type": "task",
+      "name": "trewt",
+      "description": "sher",
+      "storyPoints": "sehj",
+      "state": "DONE",
+      "id": "TASK-1"
+    },
+    {
+      "type": "task",
+      "name": "trewtgser",
+      "description": "sher",
+      "storyPoints": "sehjherh",
+      "state": "DONE",
+      "id": "TASK-2"
+    },
+    {
+      "type": "state",
+      "name": "jrtj",
+      "id": "STATE-1"
     }
   ],
   "type": [
@@ -100,5 +121,6 @@
       },
       "id": "task"
     }
-  ]
+  ],
+  "counter": 1
 }
