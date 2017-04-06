@@ -28,7 +28,7 @@
       "description": "just do it",
       "storyPoints": "1",
       "id": "1491323991078",
-      "state": "PRIORITY"
+      "state": "DEV"
     },
     {
       "type": "task",
@@ -36,7 +36,7 @@
       "description": "123",
       "storyPoints": "2",
       "id": "1491399386805",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "state",
@@ -56,7 +56,7 @@
       "name": "this is a really long task name that is really long",
       "description": "what a description check out this description its like super loong and has a lot of characters its amazing",
       "storyPoints": "10000000000000000",
-      "state": "DONE",
+      "state": "DEV",
       "id": "1491405848624"
     }
   ],
@@ -64,7 +64,9 @@
     {
       "name": "state",
       "dataFields": {
-        "name": "string"
+        "name": {
+          "type": "string"
+        }
       },
       "id": "state",
       "attributeFields": {}
@@ -72,9 +74,15 @@
     {
       "name": "task",
       "dataFields": {
-        "name": "string",
-        "description": "text",
-        "storyPoints": "number"
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "text"
+        },
+        "storyPoints": {
+          "type": "number"
+        }
       },
       "attributeFields": {
         "state": {

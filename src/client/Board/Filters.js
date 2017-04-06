@@ -6,7 +6,9 @@ import {TextField} from 'material-ui'
 import {RaisedButton, FlatButton} from 'material-ui'
 import {List, ListItem} from 'material-ui/List'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
+import Toggle from 'material-ui/Toggle';
 
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 
@@ -21,7 +23,13 @@ class Filters extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {newFilter:"", filters:[]}
+        let filters = localStorage.getItem('filters')
+        if(filters){
+            filters = JSON.parse(filters);
+        }else{
+            filters = [];
+        }
+        this.state = {newFilter:"", filters:filters}
     }
         
     onNewFilterChange = (e) => {//bound function
@@ -64,6 +72,7 @@ class Filters extends React.Component{
                 filters:newFilters, 
                 newFilter:""})
             this.props.onChange(newFilters)
+            localStorage.setItem('filters', JSON.stringify(newFilters))
         }
     }
 
@@ -75,9 +84,9 @@ class Filters extends React.Component{
         })
         let operatorOptions = ['=', '!='].map(o => {return {value: o, label: o}})
         
-        let filters = this.state.filters.map((f, i) => {
-            return <ListItem key={i} primaryText={f} rightIcon={<ActionDelete />} />
-        })
+        // let filters = this.state.filters.map((f, i) => {
+        //     return <ListItem key={i} primaryText={f} rightIcon={<ActionDelete />} />
+        // })
 
         return <Card>
             <CardHeader title="Filters" 
@@ -94,9 +103,17 @@ class Filters extends React.Component{
                 />
                 <FlatButton label="Add" onClick={this.addNewFilter} 
                 disabled={!!this.state.newFilterError}/>
-                <List>
-                    {filters}
-                </List>
+                
+                <Table selectable={false}>
+                    <TableBody displayRowCheckbox={false} striped={true}>
+                    {this.state.filters.map((f, i) => {
+                        return <TableRow key={i}>
+                            <TableRowColumn>{f}</TableRowColumn>
+                            <TableRowColumn><Toggle label="" /></TableRowColumn>
+                        </TableRow>
+                    })}
+                    </TableBody>
+                </Table>
             </CardText>
         </Card>
 

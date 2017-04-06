@@ -38,7 +38,7 @@ class ItemForm extends React.Component {
 			
 			return <div key={i}><TextField key={f}
 			floatingLabelText={f}
-			multiLine={data=="text"}
+			multiLine={data.type=="text"}
 			onChange={(e) => {
 					// console.log('datafield changing')
 					this.changeField(f, e.target.value)
