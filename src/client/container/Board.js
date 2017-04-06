@@ -27,8 +27,6 @@ class Board extends React.Component{
 	}
 
 	render(){
-		console.log('asd', this.state.filters);
-		
 		let type = this.props.match.params.type;
 		let typeData = this.props.types.filter(t => {return t.getId()==type})[0]
 		let column = this.props.match.params.column;

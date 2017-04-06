@@ -21,7 +21,7 @@
       "description": "lets see how it looks",
       "storyPoints": "1",
       "id": "TASK-1",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "task",
