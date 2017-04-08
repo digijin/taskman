@@ -5,7 +5,10 @@ export default {
             primary2Color: "#33691E",
             primary3Color: "#AED581",
             accent1Color: "#76FF03"
-        }
+        },
+        appBar:{
+            height: 50
+        },
 
     }
 }

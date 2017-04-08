@@ -62,6 +62,14 @@
       "name": "git integration",
       "id": "TASK-8",
       "state": "PRIORITY"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "make board horizontally scrollable",
+      "description": "put it all in a div or something. detect when pointer is over edges of screen (invisible div?) and scroll in that direction",
+      "state": "PRIORITY",
+      "id": "TASK-9"
     }
   ],
   "type": [
@@ -97,5 +105,5 @@
       "id": "task"
     }
   ],
-  "counter": 9
+  "counter": 10
 }

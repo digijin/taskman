@@ -48,6 +48,7 @@ class ItemCard extends React.Component {
         <CardText expandable={true}>{this.props.item.description}</CardText>
         <CardActions expandable={true}>
           <Link to={'/item/edit/'+this.props.item.getId()}><FlatButton label="edit" /></Link>
+          <FlatButton label="transition" />
         </CardActions>
 
       </Card>
