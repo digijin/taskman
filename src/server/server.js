@@ -33,6 +33,16 @@ app.use(body({ limit: '10kb', fallback: true }))
 
 //todo: search upwards in folders for taskstate.json
 
+router.get('/git', async (ctx, next) => {
+    let json = {}
+    let repo = await git.Repository.open(localFolder);
+    let commit = await repo.getBranchCommit("master");
+    let master = await repo.getMasterCommit();
+    let history = master.history()
+
+    json.commit = {message:commit.message()}
+    ctx.body = json
+})
 router.get('/state', (ctx, next) => {
     let json = {}
     if(fs.existsSync(stateFilename)){
