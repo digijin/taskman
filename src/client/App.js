@@ -20,6 +20,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import config from 'config'
+import {merge} from 'lodash'
 
 export default class App {
 	container:HTMLDivElement;
@@ -47,8 +49,11 @@ export default class App {
 		this.render();
 	}
 	render(){
+
+		let theme = merge(darkBaseTheme, config.theme)
+
 		ReactDOM.render(<Provider store={this.store}>
-			<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}><AppContainer /></MuiThemeProvider>
+			<MuiThemeProvider muiTheme={getMuiTheme(theme)}><AppContainer /></MuiThemeProvider>
 			</Provider>, this.container);
 	}
 	// load(){

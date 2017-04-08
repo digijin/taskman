@@ -54,7 +54,7 @@
       "name": "colour scheme",
       "description": "use the config.js to set some colour defaults",
       "id": "TASK-7",
-      "state": "DEV"
+      "state": "DONE"
     },
     {
       "show": true,
