@@ -43,7 +43,7 @@ export default class App {
 		this.store.subscribe(this.render.bind(this))
 		this.store.subscribe(this.save.bind(this))
 		//then override store with server data
-		this.load();
+		// this.load();
 		this.render();
 	}
 	render(){
@@ -51,15 +51,18 @@ export default class App {
 			<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}><AppContainer /></MuiThemeProvider>
 			</Provider>, this.container);
 	}
-	load(){
-		$.ajax( {
-			type: 'GET',
-			url: 'http://localhost:2468/state',
-			success: (data)=>{
-				this.store.dispatch({type: 'LOAD', data: data})
-			}
-		})
-	}
+	// load(){
+	// 	$.ajax( {
+	// 		type: 'GET',
+	// 		url: 'http://localhost:2468/state',
+	// 		success: (data)=>{
+	// 			this.store.dispatch({type: 'LOAD', data: data})
+	// 		},
+	// 		error: (err) => {
+	// 			console.log(err);
+	// 		}
+	// 	})
+	// }
 	save(){
 
 		$.ajax( {

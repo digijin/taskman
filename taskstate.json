@@ -36,7 +36,7 @@
       "name": "edit item materialuiify",
       "description": "not using dark theme right",
       "id": "TASK-3",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "show": true,
@@ -53,7 +53,15 @@
       "type": "task",
       "name": "colour scheme",
       "description": "use the config.js to set some colour defaults",
-      "id": "TASK-7"
+      "id": "TASK-7",
+      "state": "DEV"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "git integration",
+      "id": "TASK-8",
+      "state": "PRIORITY"
     }
   ],
   "type": [
@@ -89,5 +97,5 @@
       "id": "task"
     }
   ],
-  "counter": 8
+  "counter": 9
 }

@@ -6,6 +6,8 @@ console.log('please visit http://localhost:2468')
 // console.log('__dirname', __dirname);
 // console.log('process.cwd()', process.cwd());
 
+let git = require('nodegit');
+
 const globalFolder = __dirname;
 const localFolder = process.cwd()
 let fs = require('fs');

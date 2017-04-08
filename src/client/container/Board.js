@@ -6,6 +6,8 @@ import Card from '../component/Card'
 import Column from '../Board/Column'
 
 import Filters from '../Board/Filters'
+import Add from '../Item/Add'
+import AppBar from 'material-ui/AppBar';
 
 /** each board is looking at a type of item. 
  * it needs an attribute for columns and can take 
@@ -64,6 +66,10 @@ class Board extends React.Component{
 				type={column} />)
 
 		return <div>
+			<AppBar
+				title={<span>{type}</span>}
+				iconElementRight={<Add style={{"margin-top": 6}} />}
+			/>
 			<Filters onChange={this.onFilterChange} type={typeData} />
 			<div className="board">
 				{columns}
