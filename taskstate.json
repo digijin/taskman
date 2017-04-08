@@ -46,16 +46,14 @@
     {
       "show": true,
       "type": "task",
-      "name": "kiss borshy",
-      "description": "kiss",
-      "storyPoints": "1",
-      "state": "DONE",
-      "id": "TASK-5"
+      "id": "TASK-6"
     },
     {
       "show": true,
       "type": "task",
-      "id": "TASK-6"
+      "name": "colour scheme",
+      "description": "use the config.js to set some colour defaults",
+      "id": "TASK-7"
     }
   ],
   "type": [
@@ -91,5 +89,5 @@
       "id": "task"
     }
   ],
-  "counter": 7
+  "counter": 8
 }

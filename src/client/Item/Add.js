@@ -41,16 +41,15 @@ class ItemAdd extends React.Component {
 			return <Dialog open={true}>
 				<Form onChange={this.formChange} state={this.state} />
 				<RaisedButton onClick={this.submit} label="save" primary={true} />
+				&nbsp;
+				<RaisedButton onClick={this.hide} label="cancel" primary={true} />
 			</Dialog>
 		}
-
-		
-
-		return <Paper style={{padding: 20}}>
+		{/*return <Paper style={{padding: 20}}>
 			<AppBar title="Add Item" />
 			<Form onChange={this.formChange} state={this.state} />
 			<RaisedButton onClick={this.submit} label="save" primary={true} />
-		</Paper>
+		</Paper>*/}
 	}
 	formChange(e){
 		this.setState(e);
