@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-console.log('starting hyperwire server')
+console.log('starting server')
 console.log('please visit http://localhost:2468')
 
 // console.log('__dirname', __dirname);

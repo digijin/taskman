@@ -3,7 +3,7 @@ export default class How extends React.Component{
     render() {
         return <div>
         <p>
-            create a hyperwire.config.js file
+            create a codeplan.config.js file
             it should export default object of the following signature:
         </p>
             <pre> 

@@ -7,11 +7,11 @@ export default class Why extends React.Component{
             </p>
 
             <p>
-            hyperwire is highly configurable.
+            CodePlan is highly configurable.
             tasks and source are highly coupled so why not include them together.
             </p>
             <p>
-            Hyperwire is designed for developers and expects some coding prowess to harness its power
+            CodePlan is designed for developers and expects some coding prowess to harness its power
             </p>
         </div>
     }

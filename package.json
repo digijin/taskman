@@ -1,5 +1,5 @@
 {
-  "name": "hyperwire",
+  "name": "codeplan",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "server": "node src/server/server.js"
   },
   "bin": {
-    "hyperwire": "./src/server/server.js"
+    "codeplan": "./src/server/server.js"
   },
   "repository": {
     "type": "git",

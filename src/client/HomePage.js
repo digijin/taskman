@@ -34,7 +34,7 @@ class HomePage extends React.Component{
         ]
         return <div>
                 <div style={{"padding-left": 30,"padding-right": 30}} className="jumbotron">
-                    <h1>HyperWire</h1>
+                    <h1>CodePlan</h1>
                     <p>task management software for developers</p>
                     <Stepper linear={false} activeStep={stepIndex}>
                     <Step>
