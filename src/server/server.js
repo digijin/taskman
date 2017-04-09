@@ -38,9 +38,12 @@ router.get('/git', async (ctx, next) => {
     let repo = await git.Repository.open(localFolder);
     let commit = await repo.getBranchCommit("master");
     let master = await repo.getMasterCommit();
-    let history = master.history()
-
+    let history = master.history();
+    let config = await repo.config();
+    let buf = await config.getStringBuf('url');
+    
     json.commit = {message:commit.message()}
+    json.config = config
     ctx.body = json
 })
 router.get('/state', (ctx, next) => {
