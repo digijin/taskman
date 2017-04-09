@@ -40,8 +40,19 @@ router.get('/git', async (ctx, next) => {
     let master = await repo.getMasterCommit();
     let history = master.history();
     let config = await repo.config();
-    let buf = await config.getStringBuf('url');
+    // let buf = await config.getStringBuf('url');
+    let status = await repo.getStatus();
     
+    json.status = status.map(s => {
+        return {
+            path:s.path(),
+            status:s.status(),
+            isNew:s.isNew(),
+            isRenamed:s.isRenamed(),
+            inIndex:s.inIndex(),
+            inWorkingTree:s.inWorkingTree()
+        }
+    })
     json.commit = {message:commit.message()}
     json.config = config
     ctx.body = json

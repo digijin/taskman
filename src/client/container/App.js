@@ -13,6 +13,7 @@ import $ from 'jquery'
 import {flow} from 'lodash';
 import { connect } from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
+import GitBar from '../Git/Bar';
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
@@ -49,6 +50,7 @@ class App extends React.Component {
 				<Router>
 					<div>
 						<Nav />
+						<GitBar />
 						{/*JSON.stringify(this.state)*/}
 						<Route path="/" exact={true} component={HomePage} />
 						<Route path="/type" component={TypeIndex} />
