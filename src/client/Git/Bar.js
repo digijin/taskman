@@ -36,9 +36,8 @@ class GitBar extends React.Component{
 			color: this.props.muiTheme.palette.textColor,
 			padding: 10
 		}} className="gitbar">
-			<p>
-			gitbar <Clean isClean={clean} />
-			</p>
+			git
+			clean: {clean?"true":"false"}
 		</div>
 	}
 	// <pre>
