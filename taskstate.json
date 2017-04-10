@@ -36,7 +36,7 @@
       "name": "edit item materialuiify",
       "description": "not using dark theme right",
       "id": "TASK-3",
-      "state": "PRIORITY"
+      "state": "DONE"
     },
     {
       "show": true,
@@ -70,6 +70,41 @@
       "description": "put it all in a div or something. detect when pointer is over edges of screen (invisible div?) and scroll in that direction",
       "state": "PRIORITY",
       "id": "TASK-9"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "transitions",
+      "description": "actions called when a item changes one of its attributes",
+      "id": "TASK-10"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "prefill item add",
+      "description": " determine item type",
+      "id": "TASK-11"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "clear add item form on save",
+      "description": "",
+      "id": "TASK-12"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "select multiple on board",
+      "description": "and drag them all",
+      "id": "TASK-13"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "read codeplan.config.js",
+      "description": "and get it into client with functions attached",
+      "id": "TASK-14"
     }
   ],
   "type": [
@@ -105,5 +140,5 @@
       "id": "task"
     }
   ],
-  "counter": 10
+  "counter": 15
 }
