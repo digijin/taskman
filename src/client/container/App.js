@@ -32,11 +32,11 @@ class App extends React.Component {
 			url: 'http://localhost:2468/state',
 			success: (data)=>{
 				// this.store.dispatch({type: 'LOAD', data: data})
-				this.props.load(data)
+				this.props.loadState(data)
 			},
 			error: (err) => {
 				// console.log(err);
-				this.showError('Could not connect to server');
+				this.showError('Could not connect to server. Retrying.');
 				setTimeout(this.loadState, 3000)
 			}
 		})
@@ -47,10 +47,11 @@ class App extends React.Component {
 			url: 'http://localhost:2468/config',
 			success: (data)=>{
 				this.props.loadConfig(data)
+				this.setState({loaded:true})
 			},
 			error: (err) => {
 				// console.log(err);
-				this.showError('Could not connect to server');
+				this.showError('Could not connect to server. Retrying.');
 				setTimeout(this.loadConfig, 3000)
 			}
 		})
@@ -65,6 +66,7 @@ class App extends React.Component {
 	render() {
 		if(!this.state.loaded){
 			return <Paper style={{textAlign: 'center', padding: 40}}>
+			<h1>CodePlan</h1>
 			<CircularProgress size={50} thickness={7} />
 			<br />
 			Loading
@@ -102,7 +104,7 @@ function mapStateToProps(state: Object, props: Object): Object {
 
 function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	return {
-		load: (data) => {
+		loadState: (data) => {
 			dispatch({type: 'LOAD', data: data})
 		},
 		loadConfig: (data) => {
