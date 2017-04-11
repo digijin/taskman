@@ -80,8 +80,8 @@ router.put('/state', (ctx, next) => {
 router.get('/config', async (ctx, next) => {
     let json = {}
 
-    let config = await configLoader(configFilename);
     if(fs.existsSync(configFilename)){
+        let config = await configLoader(configFilename);
         json.config = config//fs.readFileSync(configFilename).toString();
     }else{
         json.error = "config not found"

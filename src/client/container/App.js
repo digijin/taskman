@@ -108,6 +108,10 @@ function mapDispatchToProps(dispatch: Function, props: Object): Object {
 			dispatch({type: 'LOAD', data: data})
 		},
 		loadConfig: (data) => {
+			let module = {} //maybe unnecessary
+			let configObj = eval(data.config);
+			console.log(configObj);
+			
 			dispatch({type: 'LOAD_CONFIG', data: data})
 		}
 	};
