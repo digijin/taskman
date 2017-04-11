@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Form from './Form'
 
 import Dialog from 'material-ui/Dialog';
+import Paper from 'material-ui/Paper';
 
 class ItemEdit extends React.Component{
 	
@@ -33,14 +34,13 @@ class ItemEdit extends React.Component{
 		}
 
 		return <div className="panel panel-default">
-			<div className="panel-heading">Edit Item</div>
-			<div className="panel-body">
+			<Paper style={{padding: 10, margin:10}}>
 				id: {this.state.id}
 				<Form onChange={this.formChange} state={this.state} />
 				<input onClick={this.submit} type="submit" />
 				<hr />
 				<pre>{JSON.stringify(this.state, null, 2)}</pre>
-			</div>
+			</Paper>
 		</div>
 	}
 }
