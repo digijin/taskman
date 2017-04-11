@@ -28,6 +28,8 @@ let router = new Router();
 
 app.use(serve(path.join(globalFolder, '../..', 'dist')));
 
+const configLoader = require('./configLoader')
+
 const convert = require('koa-convert')
 
 const body = require('koa-json-body')
@@ -74,10 +76,13 @@ router.put('/state', (ctx, next) => {
 })
 
 
-router.get('/config', (ctx, next) => {
+
+router.get('/config', async (ctx, next) => {
     let json = {}
+
+    let config = await configLoader(configFilename);
     if(fs.existsSync(configFilename)){
-        json.config = fs.readFileSync(configFilename).toString();
+        json.config = config//fs.readFileSync(configFilename).toString();
     }else{
         json.error = "config not found"
         json.filename = configFilename
