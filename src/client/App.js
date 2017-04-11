@@ -56,20 +56,7 @@ export default class App {
 			<MuiThemeProvider muiTheme={getMuiTheme(theme)}><AppContainer /></MuiThemeProvider>
 			</Provider>, this.container);
 	}
-	// load(){
-	// 	$.ajax( {
-	// 		type: 'GET',
-	// 		url: 'http://localhost:2468/state',
-	// 		success: (data)=>{
-	// 			this.store.dispatch({type: 'LOAD', data: data})
-	// 		},
-	// 		error: (err) => {
-	// 			console.log(err);
-	// 		}
-	// 	})
-	// }
 	save(){
-
 		$.ajax( {
 			type: 'PUT',
 			url: 'http://localhost:2468/state',

@@ -21,9 +21,9 @@ class App extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {error: {open: false, message: ''}}
-		this.load();
+		this.loadState();
 	}
-	load = () => {
+	loadState = () => {
 		$.ajax( {
 			type: 'GET',
 			url: 'http://localhost:2468/state',
@@ -34,7 +34,21 @@ class App extends React.Component {
 			error: (err) => {
 				// console.log(err);
 				this.showError('Could not connect to server');
-				setTimeout(this.load, 3000)
+				setTimeout(this.loadState, 3000)
+			}
+		})
+	}
+	loadConfig = () => {
+		$.ajax( {
+			type: 'GET',
+			url: 'http://localhost:2468/config',
+			success: (data)=>{
+				this.props.loadConfig(data)
+			},
+			error: (err) => {
+				// console.log(err);
+				this.showError('Could not connect to server');
+				setTimeout(this.loadConfig, 3000)
 			}
 		})
 	}

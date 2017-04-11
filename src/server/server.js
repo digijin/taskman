@@ -15,6 +15,7 @@ let fs = require('fs');
 const path = require('path');
 
 let stateFilename = path.join(localFolder, 'taskstate.json')
+let configFilename = path.join(localFolder, 'codeplan.config.js')
 
 let Koa = require('koa');
 let Router = require('koa-router');
@@ -70,6 +71,18 @@ router.put('/state', (ctx, next) => {
     if(ctx.request.body){
         fs.writeFileSync(stateFilename, JSON.stringify(ctx.request.body, null, 2));
     }
+})
+
+
+router.get('/config', (ctx, next) => {
+    let json = {}
+    if(fs.existsSync(configFilename)){
+        json.config = fs.readFileSync(configFilename).toString();
+    }else{
+        json.error = "config not found"
+        json.filename = configFilename
+    }
+    ctx.body = json
 })
 
 // app.use(ctx => {

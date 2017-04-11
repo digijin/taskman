@@ -76,35 +76,47 @@
       "type": "task",
       "name": "transitions",
       "description": "actions called when a item changes one of its attributes",
-      "id": "TASK-10"
+      "id": "TASK-10",
+      "state": "PRIORITY"
     },
     {
       "show": true,
       "type": "task",
       "name": "prefill item add",
       "description": " determine item type",
-      "id": "TASK-11"
+      "id": "TASK-11",
+      "state": "PRIORITY"
     },
     {
       "show": true,
       "type": "task",
       "name": "clear add item form on save",
       "description": "",
-      "id": "TASK-12"
+      "id": "TASK-12",
+      "state": "PRIORITY"
     },
     {
       "show": true,
       "type": "task",
       "name": "select multiple on board",
       "description": "and drag them all",
-      "id": "TASK-13"
+      "id": "TASK-13",
+      "state": "PRIORITY"
     },
     {
       "show": true,
       "type": "task",
       "name": "read codeplan.config.js",
       "description": "and get it into client with functions attached",
-      "id": "TASK-14"
+      "id": "TASK-14",
+      "state": "DEV"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "webpack codeplan.config.js",
+      "description": "with externals n shit to pick up includes",
+      "id": "TASK-15"
     }
   ],
   "type": [
@@ -140,5 +152,5 @@
       "id": "task"
     }
   ],
-  "counter": 15
+  "counter": 16
 }
