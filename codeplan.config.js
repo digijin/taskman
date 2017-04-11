@@ -1,3 +1,6 @@
 module.exports = {
-    test: "string"
+    test: "string",
+    func: function(){
+        return 2
+    }
 }
