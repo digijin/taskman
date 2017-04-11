@@ -27,6 +27,7 @@ let router = new Router();
 
 app.use(serve(path.join(globalFolder, '../..', 'dist')));
 
+const convert = require('koa-convert')
 
 const body = require('koa-json-body')
 app.use(body({ limit: '10kb', fallback: true }))
@@ -75,16 +76,18 @@ router.put('/state', (ctx, next) => {
 //   ctx.body = 'Hello World';
 // });
 
-app.use(cors());
+app.use(convert(cors()));
 app.use(router.routes()).use(router.allowedMethods());
 
 let index = fs.readFileSync(path.join(globalFolder, '../..',  'dist/index.html')).toString()
 
-app.use(function * notFound(next){
-    yield next;
-    if(this.res.statusCode == 404){ //serve index on all 404s -> history
-        this.type = 'html';
-        this.body = index
+// app.use(function * notFound(next){
+//     yield next;
+app.use(async (ctx, next) => {
+    await next;
+    if(ctx.res.statusCode == 404){ //serve index on all 404s -> history
+        ctx.type = 'html';
+        ctx.body = index
     }
 })
 
