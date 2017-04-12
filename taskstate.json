@@ -109,7 +109,7 @@
       "name": "read codeplan.config.js",
       "description": "and get it into client with functions attached",
       "id": "TASK-14",
-      "state": "DEV"
+      "state": "DONE"
     },
     {
       "show": true,
@@ -117,6 +117,13 @@
       "name": "webpack codeplan.config.js",
       "description": "with externals n shit to pick up includes",
       "id": "TASK-15"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "state": "DEV",
+      "name": "codeplan config structure",
+      "id": "TASK-16"
     }
   ],
   "type": [
@@ -152,5 +159,5 @@
       "id": "task"
     }
   ],
-  "counter": 16
+  "counter": 17
 }
