@@ -61,7 +61,7 @@
 
 
 var codeplanConfig = {
-    types: [
+    type: [
         {
             "id": "state",
             "name": "state",
