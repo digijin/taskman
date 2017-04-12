@@ -42,6 +42,8 @@ module.exports = async function loadConfig(filename){
     });
     if(out.err){
         //TODO error handling
+        console.log('Webpack Error', err)
+        
     }
     let file = fs.readFileSync('/tmp/bundle.js');
 
