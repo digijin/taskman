@@ -116,14 +116,47 @@
       "type": "task",
       "name": "webpack codeplan.config.js",
       "description": "with externals n shit to pick up includes",
-      "id": "TASK-15"
+      "id": "TASK-15",
+      "state": "DONE"
     },
     {
       "show": true,
       "type": "task",
-      "state": "DEV",
+      "state": "DONE",
       "name": "codeplan config structure",
       "id": "TASK-16"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": " be able to give all items a branch",
+      "description": " be able to give all items a branch. so you can merge from TASK-1 to SPRINT-2 to RELEASE-3",
+      "id": "TASK-17",
+      "state": "PRIORITY"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "subtasks",
+      "description": "yo dawg i herd u liek tasks",
+      "id": "TASK-18",
+      "state": "PRIORITY"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "make vertical board type",
+      "description": "using item rows like sprint planning",
+      "state": "PRIORITY",
+      "id": "TASK-19"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "boards from config initial",
+      "description": "",
+      "state": "PRIORITY",
+      "id": "TASK-20"
     }
   ]
 }
