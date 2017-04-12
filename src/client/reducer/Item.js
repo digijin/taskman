@@ -3,13 +3,13 @@ import Item from 'Item'
 
 export default function itemReducer(state = [], action, {counter}){
 
-	if(state.length == 0){
-		state = [
-			new Item({id: 'PRIORITY', type:'state', name:'prioritised'}),
-			new Item({id: 'DEV', type:'state', name:'in dev'}),
-			new Item({id: 'DONE', type:'state', name:'done'}),
-		]
-	}
+	// if(state.length == 0){
+	// 	state = [
+	// 		new Item({id: 'PRIORITY', type:'state', name:'prioritised'}),
+	// 		new Item({id: 'DEV', type:'state', name:'in dev'}),
+	// 		new Item({id: 'DONE', type:'state', name:'done'}),
+	// 	]
+	// }
 	switch(action.type){
 		case 'LOAD':
 			if(action.data.item)

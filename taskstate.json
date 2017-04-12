@@ -125,39 +125,5 @@
       "name": "codeplan config structure",
       "id": "TASK-16"
     }
-  ],
-  "type": [
-    {
-      "name": "state",
-      "dataFields": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "id": "state",
-      "attributeFields": {}
-    },
-    {
-      "name": "task",
-      "dataFields": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "text"
-        },
-        "storyPoints": {
-          "type": "number"
-        }
-      },
-      "attributeFields": {
-        "state": {
-          "multiple": false,
-          "required": false
-        }
-      },
-      "id": "task"
-    }
-  ],
-  "counter": 17
+  ]
 }

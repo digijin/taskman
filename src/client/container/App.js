@@ -22,11 +22,12 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 class App extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {error: {open: false, message: ''}, loaded: false}
+		this.state = {error: {open: false, message: ''}, loaded: false, loadMessage: 'Loading Config'}
 		this.loadConfig();
-		this.loadState();
+		// this.loadState();
 	}
 	loadState = () => {
+		this.setState({loadMessage: 'Loading State'})
 		$.ajax( {
 			type: 'GET',
 			url: 'http://localhost:2468/state',
@@ -42,12 +43,14 @@ class App extends React.Component {
 		})
 	}
 	loadConfig = () => {
+		// this.setState({loadMessage: 'Loading Config'})
 		$.ajax( {
 			type: 'GET',
 			url: 'http://localhost:2468/config',
 			success: (data)=>{
 				this.props.loadConfig(data)
 				this.setState({loaded:true})
+				this.loadState();
 			},
 			error: (err) => {
 				// console.log(err);
@@ -69,7 +72,7 @@ class App extends React.Component {
 			<h1>CodePlan</h1>
 			<CircularProgress size={50} thickness={7} />
 			<br />
-			Loading
+			{this.state.loadMessage}
 			<div style={{color:'red'}}>{this.state.error.message}</div>
 			</Paper>
 		}
@@ -110,10 +113,10 @@ function mapDispatchToProps(dispatch: Function, props: Object): Object {
 		loadConfig: (data) => {
 			let module = {} //maybe unnecessary
 			let configObj = eval(data.config);
-			console.log(configObj, configObj.func());
+			// console.log(configObj, configObj.func());
 
 			
-			dispatch({type: 'LOAD_CONFIG', data: data})
+			dispatch({type: 'LOAD', data: data})
 		}
 	};
 }
