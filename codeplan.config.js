@@ -61,6 +61,17 @@
 
 
 var codeplanConfig = {
+    board: [
+        {
+            name: "tasks",
+            url: "tasks",
+            type: "task",
+            column: {
+                type: 'state',
+            }
+
+        }
+    ],
     type: [
         {
             "id": "state",

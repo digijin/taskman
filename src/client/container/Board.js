@@ -84,7 +84,8 @@ class Board extends React.Component{
 function mapStateToProps(state: Object, props: Object): Object {
 	return {
 		types: state.type,
-		items: state.item
+		items: state.item,
+		boards: state.board
 	};
 }
 

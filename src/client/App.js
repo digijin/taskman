@@ -58,10 +58,11 @@ export default class App {
 	}
 	save(){
 		let item = this.store.getState().item
+		let counter = this.store.getState().counter
 		$.ajax( {
 			type: 'PUT',
 			url: 'http://localhost:2468/state',
-			data: JSON.stringify({item})
+			data: JSON.stringify({item, counter})
 		})
 		// localStorage.setItem('state', JSON.stringify(this.store.getState()))
 	}
