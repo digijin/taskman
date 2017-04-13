@@ -155,7 +155,7 @@
       "type": "task",
       "name": "boards from config initial",
       "description": "",
-      "state": "PRIORITY",
+      "state": "DEV",
       "id": "TASK-20"
     }
   ]
