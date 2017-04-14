@@ -85,8 +85,21 @@ class Board extends React.Component{
 				iconElementRight={<Add style={{"margin-top": 6}} />}
 			/>
 			<Filters onChange={this.onFilterChange} type={typeData} />
-			<div className="board">
-				{columns}
+			<div style={{
+				border: '8px solid purple',
+				overflowX: 'scroll',
+				overflowY: 'scroll',
+				//width: '100%',
+				//height: '100%',
+				position: 'absolute',
+				top: 140,
+				bottom: 0,
+				right: 0,
+				left: 0
+				}}>
+				<div className="board">
+					{columns}
+				</div>
 			</div>
 		</div>
 	}

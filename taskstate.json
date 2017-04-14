@@ -68,7 +68,7 @@
       "type": "task",
       "name": "make board horizontally scrollable",
       "description": "put it all in a div or something. detect when pointer is over edges of screen (invisible div?) and scroll in that direction",
-      "state": "PRIORITY",
+      "state": "DEV",
       "id": "TASK-9"
     },
     {
