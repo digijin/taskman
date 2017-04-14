@@ -68,7 +68,7 @@
       "type": "task",
       "name": "make board horizontally scrollable",
       "description": "put it all in a div or something. detect when pointer is over edges of screen (invisible div?) and scroll in that direction",
-      "state": "DEV",
+      "state": "DONE",
       "id": "TASK-9"
     },
     {
@@ -155,9 +155,16 @@
       "type": "task",
       "name": "boards from config initial",
       "description": "",
-      "state": "DONE",
+      "state": "PRIORITY",
       "id": "TASK-20"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "make board scroll while dragging",
+      "id": "TASK-20",
+      "state": "PRIORITY"
     }
   ],
-  "counter": 20
+  "counter": 21
 }
