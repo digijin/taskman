@@ -29,12 +29,26 @@ class Board extends React.Component{
 	}
 
 	render(){
-		let type = this.props.match.params.type;
-		let typeData = this.props.types.filter(t => {return t.getId()==type})[0]
-		let column = this.props.match.params.column;
+
+		let config;
+		if(this.props.match.params.id){
+
+			config = this.props.boards.filter(b => {
+				return b.url == this.props.match.params.id
+			})[0]
+		}else{
+			let type = this.props.match.params.type;
+			let column = this.props.match.params.column;
+			config = {
+				column: {type:column},
+				name: type,
+				type: type
+			}
+		}
+		let typeData = this.props.types.filter(t => {return t.getId()==config.type})[0]
 
 		let items = this.props.items.filter(i => {
-			return i.getType() == type;
+			return i.getType() == config.type;
 		}).filter(i => {
 			//that confirm to all filters
 			let item = i;
@@ -49,25 +63,25 @@ class Board extends React.Component{
 
 		let columns = this.props.items.filter(i => {
 			//items of the right type
-			return i.getType() == column;
+			return i.getType() == config.column.type;
 		}).map(i => {
 			//TODO none column
 			return <Column key={i.getName()} 
 				id={i.getId()} 
 				items={items.filter(itm=>{
-					return itm[column] == i.getId();
+					return itm[config.column.type] == i.getId();
 				})}
 				name={i.getName()} 
-				type={column} />
+				type={config.column.type} />
 		})
 		columns.push(<Column key="undefined" items={items.filter(itm=>{
-					return !itm[column];
+					return !itm[config.column.type];
 				})} name="undefined" 
-				type={column} />)
+				type={config.column.type} />)
 
 		return <div>
 			<AppBar
-				title={<span>{type}</span>}
+				title={<span>{config.type}</span>}
 				iconElementRight={<Add style={{"margin-top": 6}} />}
 			/>
 			<Filters onChange={this.onFilterChange} type={typeData} />

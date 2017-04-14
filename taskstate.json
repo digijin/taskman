@@ -155,7 +155,7 @@
       "type": "task",
       "name": "boards from config initial",
       "description": "",
-      "state": "DEV",
+      "state": "DONE",
       "id": "TASK-20"
     }
   ],
