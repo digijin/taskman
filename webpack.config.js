@@ -90,7 +90,6 @@ var webpackConfig = {
 };
 
 
-// console.log('electron', argv.electron)
 if(argv.electron){
 	webpackConfig.target = 'electron';
 	// webpackConfig.externals = null;

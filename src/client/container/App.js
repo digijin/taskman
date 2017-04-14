@@ -36,7 +36,6 @@ class App extends React.Component {
 				this.props.loadState(data)
 			},
 			error: (err) => {
-				// console.log(err);
 				this.showError('Could not connect to server. Retrying.');
 				setTimeout(this.loadState, 3000)
 			}
@@ -53,7 +52,6 @@ class App extends React.Component {
 				this.loadState();
 			},
 			error: (err) => {
-				// console.log(err);
 				this.showError('Could not connect to server. Retrying.');
 				setTimeout(this.loadConfig, 3000)
 			}
@@ -87,6 +85,7 @@ class App extends React.Component {
 						<Route path="/item" exact={true} component={ItemIndex} />
 						<Route path="/item/edit/:id" component={ItemEdit} />
 						<Route path="/board/:type/:column" component={Board} />
+						<Route path="/board/:id" exact={true} component={Board} />
 						<Snackbar
 							open={this.state.error.open}
 							message={this.state.error.message}
@@ -113,8 +112,6 @@ function mapDispatchToProps(dispatch: Function, props: Object): Object {
 		loadConfig: (data) => {
 			let module = {} //maybe unnecessary
 			let configObj = eval(data.config);
-			// console.log(configObj, configObj.func());
-			console.log('loading', configObj)
 			
 			dispatch({type: 'LOAD', data: configObj})
 		}

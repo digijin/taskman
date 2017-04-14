@@ -41,7 +41,6 @@ let dropTarget = {
 	drop(props, monitor, component) {
 		if (monitor.didDrop()) return;
 		const item = monitor.getItem();
-		// console.log('drop', item, 'set', props.type, props.id);
 		props.update(item.id, props.type, props.id)
 		return { moved: true };
 	}
