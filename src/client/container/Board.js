@@ -27,8 +27,14 @@ class Board extends React.Component{
 		super(props);
 		this.state = {filters:[]}
 		this.scrollSpeed = 0;
-		setInterval(this.doScroll, 10)
 	}
+	componentDidMount(){
+		this.scrollInterval = setInterval(this.doScroll, 10)
+	}
+	componentWillUnmount(){
+		clearInterval(this.scrollInterval);
+	}
+
 	doScroll = () => {
 		this.board.scrollLeft += this.scrollSpeed;
 	}

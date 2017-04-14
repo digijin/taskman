@@ -84,6 +84,11 @@ var codeplanConfig = {
             "attributeFields": {}
         },
         {
+            id: "release",
+            name: "Release",
+            
+        },
+        {
             "id": "task",
             "name": "task",
             "dataFields": {
