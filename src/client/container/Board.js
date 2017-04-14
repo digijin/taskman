@@ -128,15 +128,15 @@ class Board extends React.Component{
 		// console.log('e', e);
 		// console.log('e', e.screenX, e.pageX, e.clientX, window.innerWidth);
 		let size = 150;
-		this.scrollSpeed *=0.5;
+		// this.scrollSpeed *=0.5;
 		if(e.clientX < size){
 			let dist = (Math.abs(e.clientX - size))/size
-			this.scrollSpeed = -dist*3
+			this.scrollSpeed = -dist*8
 		}
 		let maxw = window.innerWidth
 		if(e.clientX > (maxw - size)){
 			let dist = (size - Math.abs(e.clientX - maxw))/size
-			this.scrollSpeed = dist*3
+			this.scrollSpeed = dist*8
 		}
 		// debugger
 	}

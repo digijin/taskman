@@ -39,7 +39,7 @@ class ItemCard extends React.Component {
     const { isDragging, connectDragSource, text } = this.props;
 
     return connectDragSource(<div className="edit">
-      <Card style={{ "margin-bottom": 10, opacity: isDragging ? 0.5 : 1 }} className="card">
+      <Card style={{ "marginBottom": 10, opacity: isDragging ? 0.5 : 1 }} className="card">
         <CardHeader 
           title={this.props.item.getId()}
           actAsExpander={true}

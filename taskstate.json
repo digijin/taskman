@@ -162,9 +162,23 @@
       "show": true,
       "type": "task",
       "name": "make board scroll while dragging",
-      "id": "TASK-20",
+      "id": "TASK-23",
       "state": "PRIORITY"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "change order of tasks",
+      "description": "like assigning priority",
+      "id": "TASK-21"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "add releases",
+      "id": "TASK-22",
+      "state": "DEV"
     }
   ],
-  "counter": 21
+  "counter": 24
 }
