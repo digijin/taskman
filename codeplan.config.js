@@ -70,6 +70,15 @@ var codeplanConfig = {
                 type: 'state',
             }
 
+        },
+        {
+            name: "Release Planning",
+            url: "releases",
+            type: "task",
+            column: {
+                type: 'release',
+            }
+
         }
     ],
     type: [
@@ -86,6 +95,11 @@ var codeplanConfig = {
         {
             id: "release",
             name: "Release",
+            "dataFields": {
+                "name": {
+                    "type": "string"
+                }
+            },
             
         },
         {
@@ -104,6 +118,10 @@ var codeplanConfig = {
             },
             "attributeFields": {
                 "state": {
+                    "multiple": false,
+                    "required": false
+                },
+                "release": {
                     "multiple": false,
                     "required": false
                 }

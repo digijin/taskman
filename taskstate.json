@@ -21,7 +21,8 @@
       "description": "lets see how it looks",
       "storyPoints": "1",
       "id": "TASK-1",
-      "state": "DONE"
+      "state": "DONE",
+      "release": "RELEASE-25"
     },
     {
       "type": "task",
@@ -178,7 +179,25 @@
       "name": "add releases",
       "id": "TASK-22",
       "state": "DEV"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "add name mandatory field to item form",
+      "id": "TASK-24"
+    },
+    {
+      "show": true,
+      "type": "release",
+      "name": "0.0.1",
+      "id": "RELEASE-25"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "use board config name in title",
+      "id": "TASK-26"
     }
   ],
-  "counter": 24
+  "counter": 27
 }
