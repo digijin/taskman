@@ -63,7 +63,7 @@
 var codeplanConfig = {
     board: [
         {
-            name: "tasks",
+            name: "Tasks Kanban",
             url: "tasks",
             type: "task",
             column: {

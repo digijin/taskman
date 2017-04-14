@@ -1,8 +1,9 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
 	render() {
 		return <nav className="navbar navbar-inverse navbar-fixed-top">
 			<div className="container">
@@ -20,7 +21,10 @@ export default class Nav extends React.Component {
 						<li><Link to={'/'}>Home</Link></li>
 						<li><Link to={'/type'}>Types</Link></li>
 						<li><Link to={'/item'}>Items</Link></li>
-						<li><Link to={'/board/task/state'}>Board</Link></li>
+						{/*<li><Link to={'/board/task/state'}>Board</Link></li>*/}
+						{this.props.boards.map(b => {
+							return <li key={b.url}><Link to={'/board/'+b.url}>{b.name}</Link></li>
+						})}
 					</ul>
 					
 				</div>
@@ -29,3 +33,21 @@ export default class Nav extends React.Component {
 		</nav>
 	}
 }
+function mapStateToProps(state: Object, props: Object): Object {
+	return {
+		// types: state.type,
+		// items: state.item,
+		boards: state.board
+	};
+}
+
+function mapDispatchToProps(dispatch: Function, props: Object): Object {
+	return {
+		// change: (item) => {
+		// 	dispatch({ type: 'CHANGE_ITEM', item: item });
+		// }
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+// export default Nav

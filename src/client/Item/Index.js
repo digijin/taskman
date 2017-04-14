@@ -10,7 +10,7 @@ export default class ItemIndex extends React.Component{
 	render() {
 		return <div><AppBar
 			title={<span>Items</span>}
-			iconElementRight={<Add style={{"margin-top": 6}} />}
+			iconElementRight={<Add style={{"marginTop": 6}} />}
 		/>
 			<List />
 			

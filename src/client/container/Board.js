@@ -96,7 +96,7 @@ class Board extends React.Component{
 		return <div>
 			<AppBar
 				title={<span>{config.type}</span>}
-				iconElementRight={<Add style={{"margin-top": 6}} />}
+				iconElementRight={<Add style={{"marginTop": 6}} />}
 			/>
 			<Filters onChange={this.onFilterChange} type={typeData} />
 			<div onMouseMove={this.onMouseMove} ref={b => {this.board = b}} style={{

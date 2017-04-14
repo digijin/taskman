@@ -178,7 +178,7 @@
       "type": "task",
       "name": "add releases",
       "id": "TASK-22",
-      "state": "DEV"
+      "state": "DONE"
     },
     {
       "show": true,
@@ -197,7 +197,14 @@
       "type": "task",
       "name": "use board config name in title",
       "id": "TASK-26"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "state": "DONE",
+      "name": "nav show boards",
+      "id": "TASK-27"
     }
   ],
-  "counter": 27
+  "counter": 28
 }
