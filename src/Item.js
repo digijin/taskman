@@ -2,6 +2,9 @@
 
 import id from 'Util/id'
 
+import {find} from 'lodash'
+
+
 import config from 'config'
 
 export default class Item{
@@ -28,9 +31,16 @@ export default class Item{
 	getType():string{
 		return this.type
 	}
+	getTypeConfig(){
+		return find(config.type, (o) => {
+			return this.getType() == o.id;
+		});
+	}
 	setAttribute(field, value){
-		console.log('set attribute', config);
-		
+		// console.log('set attribute', config);
+		let type = this.getTypeConfig();
+		console.log(type);
+		debugger;
 		this[field] = value;
 	}
 	
