@@ -57,6 +57,7 @@
 
 // type FilterFunction = (item: Item, type: TypeId):boolean => { }
 // type ValidateFunction = (item: Item, type: TypeId):boolean => { }
+type TransitionFunction = (item: Item, newValue:string):boolean => {}
 
 
 
@@ -127,7 +128,10 @@ var codeplanConfig = {
             "attributeFields": {
                 "state": {
                     "multiple": false,
-                    "required": false
+                    "required": false,
+                    transition: (item, newValue) => {
+                        console.log('transition', item, newValue);
+                    }
                 },
                 "release": {
                     "multiple": false,

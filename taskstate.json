@@ -81,7 +81,7 @@
       "name": "transitions",
       "description": "actions called when a item changes one of its attributes",
       "id": "TASK-10",
-      "state": "PRIORITY"
+      "state": "DEV"
     },
     {
       "show": true,

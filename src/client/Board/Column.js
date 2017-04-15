@@ -41,7 +41,7 @@ let dropTarget = {
 	drop(props, monitor, component) {
 		if (monitor.didDrop()) return;
 		const item = monitor.getItem();
-		props.update(item.id, props.type, props.id)
+		props.transition(item.id, props.type, props.id)
 		return { moved: true };
 	}
 
@@ -53,7 +53,7 @@ function mapStateToProps(state: Object, props: Object): Object {
 
 function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	return {
-		update: (id, field, value) => {
+		transition: (id, field, value) => {
 			dispatch({ type: 'UPDATE_ITEM_FIELD', id:id, field:field, value:value });
 		}
 	};

@@ -26,6 +26,8 @@ export default class Item{
 	getType():string{
 		return this.type
 	}
-
+	setAttribute(field, value){
+		this[field] = value;
+	}
 	
 }
