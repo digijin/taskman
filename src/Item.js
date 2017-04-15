@@ -27,6 +27,8 @@ export default class Item{
 		return this.type
 	}
 	setAttribute(field, value){
+		console.log('set attribute');
+		
 		this[field] = value;
 	}
 	

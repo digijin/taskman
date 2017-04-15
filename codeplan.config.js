@@ -57,7 +57,7 @@
 
 // type FilterFunction = (item: Item, type: TypeId):boolean => { }
 // type ValidateFunction = (item: Item, type: TypeId):boolean => { }
-type TransitionFunction = (item: Item, newValue:string):boolean => {}
+// type TransitionFunction = (item: Item, newValue:string):boolean => {}
 
 
 
