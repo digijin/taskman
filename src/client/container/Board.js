@@ -65,11 +65,19 @@ class Board extends React.Component{
 			return i.getType() == config.type;
 		}).filter(i => {
 			//that confirm to all filters
+			let filters = this.state.filters
+			if(config.filter){
+				filters = [...filters, config.filter]
+			}
 			let item = i;
-			for(let f = 0; f < this.state.filters.length; f++){
-				let filter =  this.state.filters[f];
-				if(!eval(filter)){
-					return false
+			for(let f = 0; f < filters.length; f++){
+				let filter =  filters[f];
+				if(typeof filter == 'function'){
+					return filter(i);
+				}else{
+					if(!eval(filter)){
+						return false
+					}
 				}
 			}
 			return true;

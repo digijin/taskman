@@ -66,6 +66,7 @@ var codeplanConfig = {
             name: "Tasks Kanban",
             url: "tasks",
             type: "task",
+            filter: (i) => {return !i.release},
             column: {
                 type: 'state',
             }
@@ -75,6 +76,7 @@ var codeplanConfig = {
             name: "Release Planning",
             url: "releases",
             type: "task",
+            filter: (i) => {return i.state == 'DONE'},
             column: {
                 type: 'release',
             }
@@ -84,13 +86,19 @@ var codeplanConfig = {
     type: [
         {
             "id": "state",
-            "name": "state",
+            "name": "State",
             "dataFields": {
                 "name": {
                     "type": "string"
                 }
             },
-            "attributeFields": {}
+            "attributeFields": {},
+            items: [
+                {"id": 'TODO', "name": "To do"},
+                {"id": 'PRIORITY', "name": "prioritised"},
+                {"id": "DEV","name": "in dev"},
+                {"id": "DONE","name": "done"}
+            ]
         },
         {
             id: "release",
@@ -104,7 +112,7 @@ var codeplanConfig = {
         },
         {
             "id": "task",
-            "name": "task",
+            "name": "Task",
             "dataFields": {
                 "name": {
                     "type": "string"

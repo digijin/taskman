@@ -37,7 +37,8 @@
       "name": "edit item materialuiify",
       "description": "not using dark theme right",
       "id": "TASK-3",
-      "state": "DONE"
+      "state": "DONE",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
@@ -55,7 +56,8 @@
       "name": "colour scheme",
       "description": "use the config.js to set some colour defaults",
       "id": "TASK-7",
-      "state": "DONE"
+      "state": "DONE",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
@@ -70,7 +72,8 @@
       "name": "make board horizontally scrollable",
       "description": "put it all in a div or something. detect when pointer is over edges of screen (invisible div?) and scroll in that direction",
       "state": "DONE",
-      "id": "TASK-9"
+      "id": "TASK-9",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
@@ -110,7 +113,8 @@
       "name": "read codeplan.config.js",
       "description": "and get it into client with functions attached",
       "id": "TASK-14",
-      "state": "DONE"
+      "state": "DONE",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
@@ -118,14 +122,16 @@
       "name": "webpack codeplan.config.js",
       "description": "with externals n shit to pick up includes",
       "id": "TASK-15",
-      "state": "DONE"
+      "state": "DONE",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
       "type": "task",
       "state": "DONE",
       "name": "codeplan config structure",
-      "id": "TASK-16"
+      "id": "TASK-16",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
@@ -178,7 +184,8 @@
       "type": "task",
       "name": "add releases",
       "id": "TASK-22",
-      "state": "DONE"
+      "state": "DONE",
+      "release": "RELEASE-25"
     },
     {
       "show": true,
@@ -203,8 +210,36 @@
       "type": "task",
       "state": "DONE",
       "name": "nav show boards",
-      "id": "TASK-27"
+      "id": "TASK-27",
+      "release": "RELEASE-25"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "state": "DONE",
+      "name": "apply board filters through config",
+      "id": "TASK-28",
+      "release": "RELEASE-25"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "board column filter",
+      "id": "TASK-29"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "item loading from config",
+      "id": "TASK-30"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "config items hardcoded option",
+      "id": "TASK-31",
+      "description": "prevent editing hardcoded type's items"
     }
   ],
-  "counter": 28
+  "counter": 32
 }
