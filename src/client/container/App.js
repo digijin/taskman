@@ -16,10 +16,32 @@ import Snackbar from 'material-ui/Snackbar';
 import GitBar from '../Git/Bar';
 import CircularProgress from 'material-ui/CircularProgress';
 import Paper from 'material-ui/Paper';
+import config from 'config'
+
+import {extend} from 'lodash';
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 class App extends React.Component {
+	loadConfig = () => {
+		// this.setState({loadMessage: 'Loading Config'})
+		$.ajax( {
+			type: 'GET',
+			url: 'http://localhost:2468/config',
+			success: (data)=>{
+				let module = {} //maybe unnecessary
+				let configObj = eval(data.config);
+				this.props.loadConfig(configObj)
+				this.setState({loaded:true})
+				extend(config, configObj)
+				this.loadState();
+			},
+			error: (err) => {
+				this.showError('Could not connect to server. Retrying.');
+				setTimeout(this.loadConfig, 3000)
+			}
+		})
+	}
 	constructor(props){
 		super(props);
 		this.state = {error: {open: false, message: ''}, loaded: false, loadMessage: 'Loading Config'}
@@ -38,22 +60,6 @@ class App extends React.Component {
 			error: (err) => {
 				this.showError('Could not connect to server. Retrying.');
 				setTimeout(this.loadState, 3000)
-			}
-		})
-	}
-	loadConfig = () => {
-		// this.setState({loadMessage: 'Loading Config'})
-		$.ajax( {
-			type: 'GET',
-			url: 'http://localhost:2468/config',
-			success: (data)=>{
-				this.props.loadConfig(data)
-				this.setState({loaded:true})
-				this.loadState();
-			},
-			error: (err) => {
-				this.showError('Could not connect to server. Retrying.');
-				setTimeout(this.loadConfig, 3000)
 			}
 		})
 	}
@@ -110,10 +116,9 @@ function mapDispatchToProps(dispatch: Function, props: Object): Object {
 			dispatch({type: 'LOAD', data: data})
 		},
 		loadConfig: (data) => {
-			let module = {} //maybe unnecessary
-			let configObj = eval(data.config);
 			
-			dispatch({type: 'LOAD', data: configObj})
+			
+			dispatch({type: 'LOAD', data: data})
 		}
 	};
 }

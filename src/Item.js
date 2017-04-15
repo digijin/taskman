@@ -2,6 +2,8 @@
 
 import id from 'Util/id'
 
+import config from 'config'
+
 export default class Item{
 	//an item has all attributes
 	//unless limited in mvp2
@@ -27,7 +29,7 @@ export default class Item{
 		return this.type
 	}
 	setAttribute(field, value){
-		console.log('set attribute');
+		console.log('set attribute', config);
 		
 		this[field] = value;
 	}
