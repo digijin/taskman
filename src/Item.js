@@ -39,8 +39,19 @@ export default class Item{
 	setAttribute(field, value){
 		// console.log('set attribute', config);
 		let type = this.getTypeConfig();
-		console.log(type);
-		debugger;
+		// console.log(type);
+		// debugger;
+
+		// let field = find(type.attributeField, (f) => {
+		// 	f.
+		// })
+
+		if(type[field]){
+			if(type[field].transition){
+				console.log('transition', type[field].transition);
+				debugger;
+			}
+		}
 		this[field] = value;
 	}
 	
