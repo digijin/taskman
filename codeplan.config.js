@@ -130,7 +130,9 @@ var codeplanConfig = {
 					"multiple": false,
 					"required": false,
 					transition: (item, newValue) => {
-						let from = item.state;
+						console.log('transition', item.getId(), 'from', item.state, 'to', newValue);
+						
+						// let from = item.state;
 						// if(from)
 						// console.log('from', item.state, newValue);
 						// console.log('transition', item, newValue);

@@ -30,7 +30,7 @@
       "description": "deal with overlapping ids",
       "storyPoints": "1",
       "id": "TASK-2",
-      "state": "DEV"
+      "state": "PRIORITY"
     },
     {
       "type": "task",
@@ -81,7 +81,7 @@
       "name": "transitions",
       "description": "actions called when a item changes one of its attributes",
       "id": "TASK-10",
-      "state": "DEV"
+      "state": "DONE"
     },
     {
       "show": true,
@@ -239,7 +239,26 @@
       "name": "config items hardcoded option",
       "id": "TASK-31",
       "description": "prevent editing hardcoded type's items"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "attribute transition dialogues",
+      "id": "TASK-32"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "transition git integration",
+      "id": "TASK-33"
+    },
+    {
+      "show": true,
+      "type": "task",
+      "name": "git class",
+      "id": "TASK-34",
+      "state": "DEV"
     }
   ],
-  "counter": 32
+  "counter": 35
 }
