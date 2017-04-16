@@ -46,13 +46,15 @@ export default class Item{
 		// 	f.
 		// })
 
-		if(type[field]){
-			if(type[field].transition){
-				console.log('transition', type[field].transition);
-				debugger;
+		let fieldType = type.attributeFields[field]
+		if(fieldType && fieldType.transition){
+			let result =  fieldType.transition(this, value);
+			if(result !== false){
+				this[field] = value;
 			}
+		}else{
+			this[field] = value;
 		}
-		this[field] = value;
 	}
 	
 }
