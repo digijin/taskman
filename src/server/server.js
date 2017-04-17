@@ -94,16 +94,9 @@ router.get('/config', async (ctx, next) => {
 app.use(convert(cors()));
 app.use(router.routes()).use(router.allowedMethods());
 
-let index = fs.readFileSync(path.join(globalFolder, '../..',  'dist/index.html')).toString()
 
-// app.use(function * notFound(next){
-//     yield next;
-app.use(async (ctx, next) => {
-    await next;
-    if(ctx.res.statusCode == 404){ //serve index on all 404s -> history
-        ctx.type = 'html';
-        ctx.body = index
-    }
-})
+// 404 SERVE INDEX
+const handle404 = require('./handle404')
+app.use(handle404);
 
 app.listen(2468)

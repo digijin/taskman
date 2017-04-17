@@ -49,7 +49,6 @@ export default class Item{
 		let fieldType = type.attributeFields[field]
 		if(fieldType && fieldType.transition){
 			let result =  fieldType.transition(this, value);
-			
 			if(result && result.then){//handle async functions
 				result.then( res => {//todo: recursive? nah.
 					if(result !== false){
@@ -64,5 +63,4 @@ export default class Item{
 			this[field] = value;
 		}
 	}
-	
 }
