@@ -2,10 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome",
+      "name": "Launch Chrome webpackdevserver",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:8080/",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
+      "diagnosticLogging": false,
+      "userDataDir": "${workspaceRoot}/.vscode/chrome"
+    },
+    {
+      "name": "Launch Chrome 2468",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:2468/",
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
       "diagnosticLogging": false,
