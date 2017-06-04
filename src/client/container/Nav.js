@@ -3,6 +3,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 
+import ItemMenu from '../Nav/ItemMenu'
+
 class Nav extends React.Component {
 	render() {
 		return <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -19,6 +21,10 @@ class Nav extends React.Component {
 				<div id="navbar" className="collapse navbar-collapse">
 					<ul className="nav navbar-nav">
 						<li><Link to={'/'}>Home</Link></li>
+						<li>
+							<ItemMenu />
+						</li>
+
 						<li><Link to={'/type'}>Types</Link></li>
 						<li><Link to={'/item'}>Items</Link></li>
 						{/*<li><Link to={'/board/task/state'}>Board</Link></li>*/}

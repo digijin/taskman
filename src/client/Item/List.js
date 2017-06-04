@@ -5,18 +5,17 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
+import Filters from '../Board/Filters'
+
 class ItemList extends React.Component{
+
+	onFilterChange = () => {
+		console.log('data');
+	}
+
+	// <Filters onChange={this.onFilterChange} type={typeData} />
 	render() {
-		let rows = this.props.item.map((t, i) => {
-			return <TableRow key={i}>
-				<TableRowColumn>{t.getId()}</TableRowColumn>
-				<TableRowColumn>{t.getType()}</TableRowColumn>
-				<TableRowColumn>{t.getName()}</TableRowColumn>
-				<TableRowColumn>
-					<Link className="btn btn-default" to={'/item/edit/'+t.getId()}>edit</Link>
-				</TableRowColumn>
-			</TableRow>
-		})
+		let typeData = this.props.types
 		return <div>
 			<Table>
 				<TableHeader><TableRow>
@@ -26,7 +25,16 @@ class ItemList extends React.Component{
 					</TableRow>
 				</TableHeader>
 				<TableBody>
-				{rows}
+				{this.props.item.map((t, i) => {
+					return <TableRow key={i}>
+						<TableRowColumn>{t.getId()}</TableRowColumn>
+						<TableRowColumn>{t.getType()}</TableRowColumn>
+						<TableRowColumn>{t.getName()}</TableRowColumn>
+						<TableRowColumn>
+							<Link className="btn btn-default" to={'/item/edit/'+t.getId()}>edit</Link>
+						</TableRowColumn>
+					</TableRow>
+				})}
 				</TableBody>
 			</Table>
 		</div>
@@ -36,6 +44,7 @@ class ItemList extends React.Component{
 
 function mapStateToProps(state:Object, props:Object):Object {
 	return {
+		types: state.type,
 		item: state.item
 	};
 }
