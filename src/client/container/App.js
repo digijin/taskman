@@ -22,6 +22,8 @@ import {extend} from 'lodash';
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
+//TODO: rename this to router
+
 class App extends React.Component {
 	loadConfig = () => {
 		// this.setState({loadMessage: 'Loading Config'})
@@ -89,7 +91,6 @@ class App extends React.Component {
 				<Router>
 					<div>
 						<Nav />
-						<GitBar />
 						{/*JSON.stringify(this.state)*/}
 						<Route path="/" exact={true} component={HomePage} />
 						<Route path="/type" component={TypeIndex} />
