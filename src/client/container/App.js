@@ -118,6 +118,11 @@ function mapStateToProps(state: Object, props: Object): Object {
 function mapDispatchToProps(dispatch: Function, props: Object): Object {
 	return {
 		loadState: (data) => {
+			//check
+
+			// console.log('loading', data)
+
+
 			dispatch({type: 'LOAD', data: data})
 		},
 		loadConfig: (data) => {

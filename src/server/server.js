@@ -33,31 +33,8 @@ const body = require('koa-json-body')
 app.use(body({ limit: '10kb', fallback: true }))
 
 //todo: search upwards in folders for taskstate.json
-
-router.get('/git', async (ctx, next) => {
-    let json = {}
-    let repo = await git.Repository.open(localFolder);
-    let commit = await repo.getBranchCommit("master");
-    let master = await repo.getMasterCommit();
-    let history = master.history();
-    let config = await repo.config();
-    // let buf = await config.getStringBuf('url');
-    let status = await repo.getStatus();
-    
-    json.status = status.map(s => {
-        return {
-            path:s.path(),
-            status:s.status(),
-            isNew:s.isNew(),
-            isRenamed:s.isRenamed(),
-            inIndex:s.inIndex(),
-            inWorkingTree:s.inWorkingTree()
-        }
-    })
-    json.commit = {message:commit.message()}
-    json.config = config
-    ctx.body = json
-})
+const gitroute = require('./git')
+router.get('/git', gitroute)
 router.get('/state', (ctx, next) => {
     let json = {}
     if(fs.existsSync(stateFilename)){
