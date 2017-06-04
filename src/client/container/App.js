@@ -29,6 +29,11 @@ class App extends React.Component {
 			type: 'GET',
 			url: 'http://localhost:2468/config',
 			success: (data)=>{
+				if(data.error){
+					this.showError(JSON.stringify(data));
+					setTimeout(this.loadConfig, 3000);
+					return;
+				}
 				let module = {} //maybe unnecessary
 				let configObj = eval(data.config);
 				this.props.loadConfig(configObj)
