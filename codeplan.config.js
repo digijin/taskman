@@ -59,92 +59,140 @@
 // type ValidateFunction = (item: Item, type: TypeId):boolean => { }
 // type TransitionFunction = (item: Item, newValue:string):boolean => {}
 
-
-
 var codeplanConfig = {
 	board: [
 		{
 			name: "Tasks Kanban",
 			url: "tasks",
 			type: "task",
-			filter: (i) => {return !i.release},
+			filter: i => {
+				return !i.release;
+			},
 			column: {
-				type: 'state',
+				type: "state"
 			}
-
 		},
 		{
 			name: "Release Planning",
 			url: "releases",
 			type: "task",
-			filter: (i) => {return i.state == 'DONE'},
+			filter: i => {
+				return i.state == "DONE";
+			},
 			column: {
-				type: 'release',
+				type: "release"
 			}
-
 		}
 	],
 	type: [
 		{
-			"id": "state",
-			"name": "State",
-			"dataFields": {
-				"name": {
-					"type": "string"
+			id: "state",
+			name: "State",
+			dataFields: {
+				name: {
+					type: "string"
 				}
 			},
-			"attributeFields": {},
+			attributeFields: {},
 			items: [
-				{"id": 'TODO', "name": "To do"},
-				{"id": 'PRIORITY', "name": "prioritised"},
-				{"id": "DEV","name": "in dev"},
-				{"id": "DONE","name": "done"}
+				{ id: "TODO", name: "To do" },
+				{ id: "PRIORITY", name: "prioritised" },
+				{ id: "DEV", name: "in dev" },
+				{ id: "DONE", name: "done" }
 			]
 		},
 		{
 			id: "release",
 			name: "Release",
-			"dataFields": {
-				"name": {
-					"type": "string"
+			dataFields: {
+				name: {
+					type: "string"
 				}
-			},
-			
+			}
 		},
 		{
-			"id": "task",
-			"name": "Task",
-			"dataFields": {
-				"name": {
-					"type": "string"
+			id: "task",
+			name: "Task",
+			dataFields: {
+				name: {
+					type: "string"
 				},
-				"description": {
-					"type": "text"
+				description: {
+					type: "text"
 				},
-				"storyPoints": {
-					"type": "number"
+				storyPoints: {
+					type: "number"
 				}
 			},
-			"attributeFields": {
-				"state": {
-					"multiple": false,
-					"required": false,
+			attributeFields: {
+				state: {
+					multiple: false,
+					required: false,
 					transition: (item, newValue) => {
-						console.log('transition', item.getId(), 'from', item.state, 'to', newValue);
-						
+						console.log(
+							"transition",
+							item.getId(),
+							"from",
+							item.state,
+							"to",
+							newValue
+						);
+
 						// let from = item.state;
 						// if(from)
 						// console.log('from', item.state, newValue);
 						// console.log('transition', item, newValue);
 					}
 				},
-				"release": {
-					"multiple": false,
-					"required": false
+				release: {
+					multiple: false,
+					required: false
+				}
+			}
+		},
+
+		//CMS types
+		{
+			id: "site",
+			name: "Site Name",
+			dataFields: {
+				name: {
+					type: "string"
 				}
 			},
+			items: [{ id: "ROOT", name: "mysite" }],
+			attributeFields: {
+				category: {
+					multiple: true
+				},
+				tag: {
+					multiple: true
+				}
+			}
+		},
+		{
+			id: "category",
+			name: "Category",
+			dataFields: {
+				name: {
+					type: "string"
+				}
+			}
+		},
+		{
+			id: "tag",
+			name: "Tag",
+			dataFields: {
+				name: {
+					type: "string"
+				}
+			}
+		},
+		{
+			id: "article",
+			name: "Article"
 		}
 	]
-}
+};
 
-module.exports = codeplanConfig
+module.exports = codeplanConfig;
